@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import Slider from './Slider/Slider'
 import SidebarItem from './Sidebar/Sidebar'
 
+import Step1 from '../Step1/Step1';
 import './Step2.css';
 
 const DEFAULT_OPTIONS = [
@@ -78,7 +79,7 @@ const DEFAULT_OPTIONS = [
     }
 ]
 
-function Step2() {
+const Step2 = (props) => {
     const [selectedOptionIndex, setSelectedOptionIndex] = useState(0)
     const [options, setOptions] = useState(DEFAULT_OPTIONS)
     const selectedOption = options[selectedOptionIndex]
@@ -101,12 +102,13 @@ function Step2() {
     }
 
     console.log(getImageStyle())
-
     return (
         <div className="container2">
             <div className="container1" id="stp2">
                 <div className="main-image" style={getImageStyle()}>
                     <img src="/assets/traffic.jpg" alt="Image" height="300" width="auto" />
+                    {/* <img src={props.picc} alt="Image" height="300" width="auto" /> */}
+                    
                 </div>
                 <div className="sidebar">
                     {options.map((option, index) => {

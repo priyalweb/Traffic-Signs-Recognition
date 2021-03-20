@@ -14,7 +14,7 @@ function App() {
     <Sidebar />
     <Switch>
       <Route path="/input" component={Tabshow} />
-      <Redirect to="/dashboard" />
+      {/* <Redirect to="/dashboard" /> */}
     </Switch>
     {/* <Footer /> */}
   </BrowserRouter>

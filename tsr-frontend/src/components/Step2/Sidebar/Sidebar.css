@@ -1,7 +1,7 @@
 .sidebar {
   grid-area: sidebar;
-  background-color: hsl(265, 100%, 86%);
-  border: 1px solid hsl(265, 100%, 56%);
+  background-color: #ff00008a;
+  border: 1px solid gray;
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -12,20 +12,20 @@
   cursor: pointer;
   border: none;
   outline: none;
-  background-color: hsl(265, 100%, 86%);
+  background-color: #ff46468a;
   padding: 1rem;
   position: relative;
   transition: background-color 150ms;
-  border: 0.02rem dotted hsl(265, 100%, 46%) !important;
+  border: 0.02rem dotted gray !important;
 }
 
 .sidebar-item:hover,
 .sidebar-item:focus {
-  background-color: hsl(265, 100%, 76%);
+  background-color: #ff0000b8; 
 }
 
 .sidebar-item.active {
-  background-color: hsl(265, 100%, 70%);
+  background-color: #ff0000c2;
 }
 
 /* .sidebar-item::after {
