@@ -101,14 +101,13 @@ const Step2 = (props) => {
         return { filter: filters.join(' ') }
     }
 
-    console.log(getImageStyle())
     return (
         <div className="container2">
             <div className="container1" id="stp2">
                 <div className="main-image" style={getImageStyle()}>
-                    <img src="/assets/traffic.jpg" alt="Image" height="300" width="auto" />
+                    <img src={props.base64} alt="Image" height="300" width="auto" />
                     {/* <img src={props.picc} alt="Image" height="300" width="auto" /> */}
-                    
+
                 </div>
                 <div className="sidebar">
                     {options.map((option, index) => {
