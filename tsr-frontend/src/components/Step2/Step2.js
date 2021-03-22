@@ -53,15 +53,44 @@ const Step2 = (props) => {
                         DEFAULT_OPTIONS.map((augmentation, index) => {
                             if (index === selectedOptionIndex) {
                                 return augmentation.parameters.map((parameter) => {
-                                    return (
+                                    if (parameter.parameter_name === 'prob') {
+                                        return (
+                                            <div className="ind_input">
+                                                <label htmlFor={parameter.parameter_name}> Enter {parameter.parameter_name} </label>
+                                                <input
+                                                    type={parameter.input_type}
+                                                    id={parameter.parameter_name}
+                                                    name={parameter.parameter_name}
+                                                    defaultValue={parameter.default_value}
+                                                    min="0"
+                                                    max="1"
+                                                    step="any"
+                                                />
+                                            </div>
+                                        )
+                                    }
+                                    if (augmentation.name === 'add_rain') {
+                                        return (
+                                            <div className="ind_input">
+                                                <label htmlFor={parameter.parameter_name}> Enter {parameter.parameter_name} (heavy/drizzle) </label>
+                                                <input
+                                                    type={parameter.input_type}
+                                                    id={parameter.parameter_name}
+                                                    name={parameter.parameter_name}
+                                                    defaultValue={parameter.default_value}
+                                                    step="any"
+                                                />
+                                            </div>
+                                        )
+                                    }
+                                    else return (
                                         <div className="ind_input">
                                             <label htmlFor={parameter.parameter_name}> Enter {parameter.parameter_name} </label>
                                             <input
                                                 type={parameter.input_type}
                                                 id={parameter.parameter_name}
                                                 name={parameter.parameter_name}
-                                                // value={parameter.parameter_name}
-                                                // onChange={(e) => `set${parameter.parameter_name}(e.target.value)`}
+                                                defaultValue={parameter.default_value}
                                                 step="any"
                                             />
                                         </div>

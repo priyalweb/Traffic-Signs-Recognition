@@ -333,8 +333,7 @@ export const DEFAULT_OPTIONS = [
                 parameter_name: 'rain_type',
                 type: 'string',
                 input_type: 'text',
-                default_value: null,
-
+                default_value: 'heavy',
             }
         ]
     },
