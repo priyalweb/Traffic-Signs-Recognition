@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import { BiImageAdd } from "react-icons/bi";
-import Step2 from '../Step2/Step2';
+// import Step2 from '../Step2/Step2';
 import "../Tab/Tab.css";
 import "./Step1.css";
 
