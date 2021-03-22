@@ -8,7 +8,7 @@ import { DEFAULT_OPTIONS } from '../../utils/augs'
 
 const Step2 = (props) => {
     const [selectedOptionIndex, setSelectedOptionIndex] = useState(0)
-    const [displayImage, setDisplayImage] = useState(null)
+    const [displayImage, setDisplayImage] = useState('assets/default-img.jpg')
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -30,23 +30,29 @@ const Step2 = (props) => {
                 'Access-Control-Allow-Credentials': 'true'
             },
             withCredentials: true,
-            crossorigin: true
+            crossorigin: true,
+            responseType: 'blob'
         }
 
-        const url = 'http://22ec4e35fa46.ngrok.io'
+        const url = 'http://19f558f7b6e2.ngrok.io'
         axios.post(`${url}/augment`, formData, config)
             .then(res => {
-                console.log(res)
+                console.log(res.data)
+                // var arr = new Uint8Array(res.data)
+                // var raw = String.fromCharCode.apply(null, arr)
+                // var b64 = btoa(unescape(encodeURIComponent(res.data)))
+                setDisplayImage(URL.createObjectURL(res.data))
+                // console.log(b64)
             })
             .catch(err => console.log(err))
 
     }
 
     return (
-        <>
-            {/* <div className="response-img">
-                <img height="300" src={urlCreator.createObjectURL(displayImage)} alt="" />
-            </div> */}
+        <div className="container2">
+            <div className="response-img">
+                <img height="300" src={displayImage} alt="" />
+            </div>
             <div className="container1">
                 <div className="sidebar">
                     {DEFAULT_OPTIONS.map((augmentation, index) => {
@@ -119,7 +125,7 @@ const Step2 = (props) => {
                     </div>
                 </form>
             </div>
-        </>
+        </div>
     )
 }
 
