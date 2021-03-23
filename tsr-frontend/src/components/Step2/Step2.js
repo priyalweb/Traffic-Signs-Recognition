@@ -20,6 +20,7 @@ const Step2 = (props) => {
 
         let formData = new FormData()
         formData.append('aug_name', DEFAULT_OPTIONS[selectedOptionIndex].name)
+        formData.append('aug_mode', 'run')
         for (let i = 0; i < len; i++) {
             data[e.target[i].id] = e.target[i].value
             formData.append(e.target[i].id, e.target[i].value)
@@ -173,3 +174,6 @@ const Step2 = (props) => {
 }
 
 export default Step2;
+
+
+// http://da6e01721c28.ngrok.io/predict
