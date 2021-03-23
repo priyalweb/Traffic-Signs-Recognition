@@ -7,6 +7,7 @@ function ConnectToServer(props) {
         e.preventDefault()
         console.log(e.target[0].value)
         props.setUrl(e.target[0].value)
+        alert('The URL has been saved!')
     }
 
     return (

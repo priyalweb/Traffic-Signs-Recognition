@@ -1,0 +1,41 @@
+.dashboard {
+  /* display: flex; */
+  position: absolute;
+  margin-left: 260px;
+  padding: 40px;
+  width: calc(100% - 300px);
+}
+
+header {
+  margin: 1rem 0 2rem 0;
+}
+
+header h4 {
+  text-transform: capitalize;
+  font-size: 28px;
+}
+
+.stats {
+  display: flex;
+  flex-direction: column;
+  width: 100% !important;
+  align-items: center !important;
+}
+
+.stats1 {
+  display: flex;
+  width: 100% !important;
+  justify-content: center !important;
+}
+
+.stat {
+  text-align: center !important;
+  display: flex;
+  flex-direction: column;
+}
+
+.stat label {
+  font-weight: 450;
+  margin: 1rem 0;
+  color: #444;
+}

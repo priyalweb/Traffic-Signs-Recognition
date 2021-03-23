@@ -6,7 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Tabshow from "./components/Tab/Tabshow";
 import ConnectToServer from './components/ConnectToServer/ConnectToServer'
-
+import Dashboard from './components/Dashboard/Dashboard'
 
 
 function App() {
@@ -18,6 +18,7 @@ function App() {
       <Sidebar />
       <ConnectToServer url={url} setUrl={setUrl} />
       <Switch>
+        <Route path="/dashboard" component={Dashboard} />
         <Route path="/input" render={() => <Tabshow url={url} />} />
         {/* <Redirect to="/dashboard" /> */}
       </Switch>
