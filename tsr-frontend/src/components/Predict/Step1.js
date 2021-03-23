@@ -7,17 +7,41 @@ import "./Step1.css";
 
 
 export default class Step1 extends Component {
+  constructor() {
+    super()
+    this.state = {
+        profileImg: '/assets/default-img.jpg',
+        base64: null,
+        imageURL: '',
+        order: '1',
+    }
+    this.imageHandler = this.imageHandler.bind(this)
+    this.handleUploadImage = this.handleUploadImage.bind(this);
+}
 
-    constructor(props) {
-        super(props);
+    imageHandler = (e) => {
+        const reader = new FileReader();
+        reader.onload = () => {
+            if (reader.readyState === 2) {
+                this.setState({ profileImg: reader.result })
+                this.setState({ base64: reader.result })
+
+                console.log(this.state.base64);
+            }
+        }
+        reader.readAsDataURL(e.target.files[0])
+    };
+
+    // constructor(props) {
+    //     super(props);
     
-        this.state = {
-          imageURL: '',
-          order: '1',
-        };
+    //     this.state = {
+    //       imageURL: '',
+    //       order: '1',
+    //     };
     
-        this.handleUploadImage = this.handleUploadImage.bind(this);
-      }
+    //     this.handleUploadImage = this.handleUploadImage.bind(this);
+    //   }
     
       handleUploadImage(ev) {
         ev.preventDefault();
@@ -29,9 +53,6 @@ export default class Step1 extends Component {
         // console.log(this.uploadInput.files[0].name)
         // console.log(this.fileName.value);
         data.append('filename', this.fileName.value);
-        
-
-        this.setState({order: '2'});
 
 
         fetch('http://localhost:5000/upload', {
@@ -47,28 +68,28 @@ export default class Step1 extends Component {
         //   response.json().then((body) => {
         //     this.setState({ imageURL: `http://localhost:5000/${body.file}` });
         //          this.setState({order: '2'});
-        //   });
-        
+        //   });     
           console.log(response);
         });
       }
 
-    //   getComponent(event) {
-    //     console.log('li item clicked!');
-    //     event.currentTarget.style.backgroundColor = '#ccc';
-    //   }
 
     render() {
+
+      const profileImg = this.state.profileImg;
+      const base64 = this.state.base64;
+      console.log(profileImg,base64, "here")
+
         return (
             <div id="stp1">
                 <div className="page">
                     <div className="container">
                         <h1 className="heading">Add your Sign</h1>
-                        {this.props.base64 !== null && <span style={{ color: 'green' }}>Image Chosen. Click on Upload your photo to continue.</span>}
+                        {base64 !== null && <span style={{ color: 'green' }}>Image Chosen. Click on Upload your photo to continue.</span>}
                         <br></br>
                         {/* {this.state.order !== '1' && this.props.base64 !== null && <span style={{ color: 'green' }}>Image uploaded.</span>} */}
                         <div className="img-holder">
-                            <img src={this.props.profileImg} alt="" id="img" className="img" />
+                            <img src={profileImg} alt="" id="img" className="img" />
                         </div>
                         
                         {/* <input type="file" accept="image/*" name="image-upload" id="input" onChange={this.props.update} /> */}
@@ -76,7 +97,7 @@ export default class Step1 extends Component {
                         
                         <form onSubmit={this.handleUploadImage}>
                             <div>
-                            <input type="file" name='file' accept="image/*"  id="input" ref={(ref) => { this.uploadInput = ref; }} onChange={this.props.update}/>
+                            <input type="file" name='file' accept="image/*"  id="input" ref={(ref) => { this.uploadInput = ref; }} onChange={this.imageHandler}/>
                             </div>
                             <div style={{display: "none"}}>
                             {/* <div> */}

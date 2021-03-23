@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Slider from './Slider/Slider'
 import SidebarItem from './Sidebar/Sidebar'
 
-import Step1 from '../Step1/Step1';
+import Step1 from '../Retrain/Step12';
 import './Step2.css';
 
 const DEFAULT_OPTIONS = [
