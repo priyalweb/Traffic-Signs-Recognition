@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import Sidebar from "./components/Sidebar/Sidebar";
@@ -20,7 +20,7 @@ function App() {
       <Switch>
         <Route path="/dashboard" component={Dashboard} />
         <Route path="/input" render={() => <Tabshow url={url} />} />
-        {/* <Redirect to="/dashboard" /> */}
+        <Redirect to="/dashboard" />
       </Switch>
 
       {/* <Footer /> */}
