@@ -15,12 +15,17 @@ const Step2 = (props) => {
         const len = e.target.length - 1
         console.log(DEFAULT_OPTIONS[selectedOptionIndex].name)
 
+        const data = {}
+        data['name'] = DEFAULT_OPTIONS[selectedOptionIndex].name
+
         let formData = new FormData()
         formData.append('aug_name', DEFAULT_OPTIONS[selectedOptionIndex].name)
         for (let i = 0; i < len; i++) {
-            // console.log(e.target[i].id, e.target[i].value)
+            data[e.target[i].id] = e.target[i].value
             formData.append(e.target[i].id, e.target[i].value)
         }
+
+        console.log(data)
 
         const config = {
             headers: {
@@ -34,7 +39,7 @@ const Step2 = (props) => {
             responseType: 'blob'
         }
 
-        const url = 'http://19f558f7b6e2.ngrok.io'
+        const url = props.url
         axios.post(`${url}/augment`, formData, config)
             .then(res => {
                 console.log(res.data)
@@ -46,6 +51,36 @@ const Step2 = (props) => {
             })
             .catch(err => console.log(err))
 
+    }
+
+    function handleResetOrUndo(e) {
+        console.log(e.target.value)
+        let formData = new FormData()
+        formData.append('aug_mode', e.target.value)
+
+        const config = {
+            headers: {
+                'content-type': 'multipart/form-data',
+                'Access-Control-Allow-Origin': '*',
+                // 'CORS_SUPPORTS_CREDENTIALS': 'true',
+                'Access-Control-Allow-Credentials': 'true'
+            },
+            withCredentials: true,
+            crossorigin: true,
+            responseType: 'blob'
+        }
+
+        const url = props.url
+        axios.post(`${url}/augment`, formData, config)
+            .then(res => {
+                console.log(res.data)
+                // var arr = new Uint8Array(res.data)
+                // var raw = String.fromCharCode.apply(null, arr)
+                // var b64 = btoa(unescape(encodeURIComponent(res.data)))
+                setDisplayImage(URL.createObjectURL(res.data))
+                // console.log(b64)
+            })
+            .catch(err => console.log(err))
     }
 
     return (
@@ -127,6 +162,10 @@ const Step2 = (props) => {
                             <button type="submit">Apply</button>
                         </div>
                     </form>
+                    <div className="edit-options">
+                        <button value="undo" onClick={(e) => handleResetOrUndo(e)}>Undo</button>
+                        <button value="reset" onClick={(e) => handleResetOrUndo(e)}>Reset</button>
+                    </div>
                 </div>
             </div>
         </>

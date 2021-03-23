@@ -1,0 +1,24 @@
+.connect {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin: 2rem 0;
+}
+.connect input {
+  padding: 0.5rem 1rem;
+  width: 40%;
+  outline: none;
+}
+
+.connect button {
+  margin: 0 1rem;
+  outline: none !important;
+  color: white;
+  background-color: rgb(247, 74, 74);
+  border: 1px solid transparent;
+  padding: 0.5rem 1.5rem;
+}
+
+.connect button:hover {
+  background-color: rgb(247, 46, 46);
+}

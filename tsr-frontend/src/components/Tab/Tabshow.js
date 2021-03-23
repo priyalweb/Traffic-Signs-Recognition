@@ -7,8 +7,8 @@ import "./Tab.css";
 
 export default class Tabshow extends Component {
 
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
             profileImg: '/assets/default-img.jpg',
             base64: null
@@ -37,7 +37,7 @@ export default class Tabshow extends Component {
                         {<Step1 base64={this.state.base64} profileImg={this.state.profileImg} update={this.imageHandler} />}
                     </div>
                     <div className="step2 col-12" label="Step 2">
-                        {<Step2 base64={this.state.base64} />}
+                        {<Step2 base64={this.state.base64} url={this.props.url} />}
                     </div>
                     <div className="step3 col-12" label="Step 3">
                         {/* <Step3 /> */}
