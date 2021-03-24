@@ -1,69 +1,196 @@
-import React, { Fragment, Component } from "react";
-import ReactDOM from "react-dom";
-// import "./styles.css";
-import Pick from '../Pick';
+import React, {useState} from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import ButtonBase from '@material-ui/core/ButtonBase';
+import Typography from '@material-ui/core/Typography';
 import Step1 from '../Predict/Step1';
 import Step12 from '../Retrain/Step12';
 
+const images = [
+  {
+    url: '/static/images/grid-list/burgers.jpg',
+    title: 'Predict',
+    width: '30%',
+  },
+  {
+    url: '/static/images/grid-list/camera.jpg',
+    title: 'Retrain',
+    width: '30%',
+  },
+];
 
-class Step0 extends Component {
-  constructor(props) {
-    super(props);
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    minWidth: 300,
+    width: '100%',
+    alignItems: "center",
+    marginLeft: "220px",
+    marginTop: "10%",
+  },
+  image: {
+    position: 'relative',
+    height: 200,
+    [theme.breakpoints.down('xs')]: {
+      width: '100% !important', // Overrides inline-style
+      height: 100,
+    },
+    backgroundColor: "rgb(247, 46, 46);",
+    '&:hover, &$focusVisible': {
+      zIndex: 1,
+      '& $imageBackdrop': {
+        opacity: 0.15,
+      },
+      '& $imageMarked': {
+        opacity: 0,
+      },
+      '& $imageTitle': {
+        border: '4px solid currentColor',
+      },
+    },
+  },
+  focusVisible: {},
+  imageButton: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    color: theme.palette.common.white,
+  },
+  imageSrc: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center 40%',
+  },
+  imageBackdrop: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
+    backgroundColor: theme.palette.common.black,
+    backgroundColor: "black",
+    opacity: 0.4,
+    transition: theme.transitions.create('opacity'),
+  },
+  imageTitle: {
+    position: 'relative',
+    padding: `${theme.spacing(2)}px ${theme.spacing(4)}px ${theme.spacing(1) + 6}px`,
+  },
+  imageMarked: {
+    height: 3,
+    width: 18,
+    backgroundColor: theme.palette.common.white,
+    position: 'absolute',
+    bottom: -2,
+    left: 'calc(50% - 9px)',
+    transition: theme.transitions.create('opacity'),
+  },
+}));
 
-  }
-
-  state = {
-    selectedCardType: ''
-  };
 
 
-  render() {
-    return (
-      <Fragment>
-        <div className="app-bar" style={{ marginLeft: "220px" }}>
-          <h1 className="app-bar-title">Select your path</h1>
+const Step0 = (props) => {
+
+  const [count, setCount] = useState('0');
+  
+  const classes = useStyles();
+
+  console.log(count, "default");
+  console.log(count, "predict");
+  console.log(count, "retrain");
+
+
+  return (
+    <>
+    <div>
+      {count === '0' && 
+        <div className={classes.root}>
+        
+        {/*   {images.map((image) => ( */}
+            <ButtonBase
+              focusRipple
+              // key={image.title}
+              className={classes.image}
+              focusVisibleClassName={classes.focusVisible}
+              style={{
+                width: "30%", border: "0px 1px 0px 0px solid white",
+              }}
+              onClick={() => setCount('1')}
+            >
+              <span
+                className={classes.imageSrc}
+                style={{
+                  // backgroundImage: `url(${image.url})`,
+                }}
+              />
+              <span className={classes.imageBackdrop} />
+              <span className={classes.imageButton}>
+                <Typography
+                  component="span"
+                  variant="subtitle1"
+                  color="inherit"
+                  className={classes.imageTitle}
+                >
+                  {/* {image.title} */}
+                  Predict
+                  <span className={classes.imageMarked} />
+                </Typography>
+              </span>
+              
+            </ButtonBase>
+          {/* ))} */}
+            <ButtonBase
+                focusRipple
+                // key={image.title}
+                className={classes.image}
+                focusVisibleClassName={classes.focusVisible}
+                style={{
+                  width: "30%",
+                }}
+                onClick={() => setCount('2')}
+              >
+                <span
+                  className={classes.imageSrc}
+                  style={{
+                    // backgroundImage: `url(${image.url})`,
+                  }}
+                />
+                <span className={classes.imageBackdrop} />
+                <span className={classes.imageButton}>
+                  <Typography
+                    component="span"
+                    variant="subtitle1"
+                    color="inherit"
+                    className={classes.imageTitle}
+                  >
+                    {/* {image.title} */}
+                    Retrain
+                    <span className={classes.imageMarked} />
+                  </Typography>
+                </span>
+              </ButtonBase>
         </div>
-        <section className="app-section container">
-          {this.renderCardSelector()}
-
-          <div className="top-margin-small">
-            {this.renderSelectedCard(this.state.selectedCardType)}
-          </div>
-        </section>
-      </Fragment>
-    );
-  }
-
-
-  renderCardSelector() {
-    return (
-      <div className="form-group top-margin-small">
-        <label className="card-selector-label">Select one of the path and proceed</label>
-        <select className="card-selector form-control"
-          onChange={(e) => this.setState({ selectedCardType: e.target.value })}>
-          <option></option>
-          {/* <option>CardA</option>
-          <option>CardB</option> */}
-          <option>Predict</option>
-          <option>Retrain</option>
-        </select>
-      </div>
-    );
-  }
-
-
-  renderSelectedCard(selectedCardType) {
-    if (!selectedCardType)
-      return <Pick text="Pick a Path Please!" />;
-    else if (selectedCardType == 'Predict') {
-      return <Step1 base64={this.props.base64} url={this.props.url} profileImg={this.props.profileImg} update={this.imageHandler} />;
-    } else {
-      return <Step12 url={this.props.url} />;
-    }
-
-
-
-  }
+        }
+        <div >
+        {/* {count === '1' && <Step1 countstate = {count} changestate = {setCount} */}
+        {count === '1' && <Step1 url={props.url}  /> }
+        </div>
+        <div>
+        {count === '2' && <Step12 url={props.url}/>}
+        </div>
+    </div>
+    </>
+  );
 }
+
 
 export default Step0;

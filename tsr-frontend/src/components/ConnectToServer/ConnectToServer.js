@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import axios from 'axios';
 import './Connect.css'
 
 function ConnectToServer(props) {
@@ -7,8 +8,25 @@ function ConnectToServer(props) {
         e.preventDefault()
         console.log(e.target[0].value)
         props.setUrl(e.target[0].value)
-        alert('The URL has been saved!')
-    }
+
+        axios.get(e.target[0].value)
+            .then(res => {
+                console.log(res.status)
+                if (res.status === 200) {
+                    // props.setUrl(e.target[0].value)
+                    alert('The URL has been saved!')
+                }
+                else
+                    alert('The URL could not be saved. Please try again.')
+            })
+            .catch(err => {
+                console.log(err)
+        // e.preventDefault()
+        // console.log(e.target[0].value)
+        // props.setUrl(e.target[0].value)
+        // alert('The URL has been saved!')
+    })
+}
 
     return (
         <form onSubmit={(e) => handleSubmit(e)} className="connect">

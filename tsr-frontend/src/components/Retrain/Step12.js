@@ -1,6 +1,9 @@
 import * as React from "react";
 import axios from "axios";
 import { Component } from 'react';
+import { BiImageAdd, BiReset, BiPointer } from "react-icons/bi";
+import { BsCloudUpload } from "react-icons/bs";
+import $ from 'jquery';
 import './Step12.css';
 
 
@@ -8,11 +11,21 @@ export default class Step12 extends Component {
 
   constructor(props) {
     super(props)
+
+    this.state = {value: 1};
+
+    this.handleChange = this.handleChange.bind(this);
+  
   }
 
   state = {
     file: null
   }
+
+  handleChange(event) {
+    this.setState({value: event.target.value});
+  }
+
 
   handleFile(e) {
 
@@ -37,13 +50,16 @@ export default class Step12 extends Component {
     console.log(file);
 
     // formdata.append('name' , 'image-data');
+    formdata.append('input_type',"retrain");
+    formdata.append('class_name',this.state.value)
     formdata.append('file', file);
     // data.append('file', file);
     formdata.append('filename', this.fileName.value);
-
+    formdata.forEach((value,key) => {
+      console.log(key+value)
+      });
     for (var key in file) {
-      formdata.append(key, file[key].name);
-
+      formdata.append(key, file[key]);
     }
     for (let key of formdata.keys()) {
       console.log(key, formdata.get(key));
@@ -108,14 +124,24 @@ export default class Step12 extends Component {
   }
 
   render() {
+    $(function(){
+      var $select = $(".1-50");
+      for (var i=1;i<=50;i++){
+          $select.append($('<option></option>').val(i).html(i))
+      }
+  });
+
     return (
       <div className="uploadfiles">
-        <h1>The form</h1>
+        <h1>Upload Photo Batch with Class Id</h1>
 
         <form>
+
+        
+
           <div className="">
-            <label>select File</label>
-            <input type='file' multiple name="file" onChange={(e) => this.handleFile(e)} />
+            <label></label>
+            <input type='file' id="input" multiple name="file" onChange={(e) => this.handleFile(e)} />
 
           </div>
           <div style={{ display: "none" }}>
@@ -124,9 +150,35 @@ export default class Step12 extends Component {
             <input ref={(ref) => { this.fileName = "imgg" }} type="text" placeholder="Enter the desired name of file" />
           </div>
 
-          <button type="button" onClick={(e) => this.handleUpload(e)}>Upload</button>
+          <button type="button" id='upld' style={{display: "none"}} onClick={(e) => this.handleUpload(e)}>Upload</button>
         </form>
+
+        <div className="label">
+          <button className="image-upload">
+              <i className="material-icons"> {<BiReset />}</i>
+            Reset Choices
+          </button>
+          <label id="dropdown" className="image-upload">
+           <i className="material-icons"> {<BiPointer />}</i>
+          Choose Class ID:
+          <select className="1-50" value={this.state.value} onChange={this.handleChange} style={{margin:"2px", padding:"4px"}}>
+            {/* <option value="grapefruit">Grapefruit</option>
+            <option value="lime">Lime</option>
+            <option value="coconut">Coconut</option>
+            <option value="mango">Mango</option> */}
+          </select>
+        </label>
+          <label className="image-upload" htmlFor="input">
+          <i className="material-icons"> {<BiImageAdd />}</i>
+            Choose Photo Batch
+          </label>
+          <label className="image-upload" htmlFor="upld" >
+            <i className="material-icons"> {<BsCloudUpload />}</i>
+            Upload Photo Batch
+          </label>
+        </div>
       </div>
+      
     );
   }
 }
