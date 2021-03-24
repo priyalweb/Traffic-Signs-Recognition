@@ -1,0 +1,12 @@
+.pre-processing {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pre-processing form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
