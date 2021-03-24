@@ -12,7 +12,10 @@ export default class Step12 extends Component {
   constructor(props) {
     super(props)
 
-    this.state = {value: 1};
+    this.state = {
+      value: 1,
+      order: '0',
+    };
 
     this.handleChange = this.handleChange.bind(this);
   
@@ -31,8 +34,12 @@ export default class Step12 extends Component {
 
     console.log(e.target.files, "$$$$");
     console.log(e.target.files[0], "$$$$")
-
+   
     let file = e.target.files
+    console.log(file);
+    if(this.state.file !== null){
+      this.setState({order: '1'});
+    }
 
 
     //for multiple files add all
@@ -49,6 +56,7 @@ export default class Step12 extends Component {
     let formdata = new FormData()
     console.log(file);
 
+    
     // formdata.append('name' , 'image-data');
     formdata.append('input_type',"retrain");
     formdata.append('class_name',this.state.value)
@@ -97,29 +105,13 @@ export default class Step12 extends Component {
       data: formdata //pass here..
     }).then((res) => {
       console.log(res);
+      if(res.data !== null){
+        this.setState({order: '2'});
+      }
     }, (err) => {
       console.log(err);
     })
 
-    // fetch('http://localhost:5000/uploadimages', {
-    //       method: 'POST',
-    //       body: JSON.stringify(formdata),
-    //       mode: 'no-cors',
-    //       dataType : 'json',
-    //       headers: {
-    //         'Content-Type': 'multipart/form-data; ',
-    //       },
-    //     })
-    //     .then((response) => {
-    //     //   response.json().then((body) => {
-    //     //     this.setState({ imageURL: `http://localhost:5000/${body.file}` });
-    //     //          this.setState({order: '2'});
-    //     //   });
-
-    //       console.log(response);
-    //     },(err) => {
-    //       console.log("error");
-    //     });
 
   }
 
@@ -135,10 +127,11 @@ export default class Step12 extends Component {
       <div className="uploadfiles">
         <h1>Upload Photo Batch with Class Id</h1>
 
+        {this.state.order === '1' && <span style={{ color: 'green' }}>Images Chosen. Click on Upload Photo Batch to continue.</span>}
+                        <br></br>
+        {this.state.order === '2' && <span style={{ color: 'green' }}>Images Batch uploaded. Please proceed to step 2.</span>}
+
         <form>
-
-        
-
           <div className="">
             <label></label>
             <input type='file' id="input" multiple name="file" onChange={(e) => this.handleFile(e)} />
@@ -162,10 +155,6 @@ export default class Step12 extends Component {
            <i className="material-icons"> {<BiPointer />}</i>
           Choose Class ID:
           <select className="1-50" value={this.state.value} onChange={this.handleChange} style={{margin:"2px", padding:"4px"}}>
-            {/* <option value="grapefruit">Grapefruit</option>
-            <option value="lime">Lime</option>
-            <option value="coconut">Coconut</option>
-            <option value="mango">Mango</option> */}
           </select>
         </label>
           <label className="image-upload" htmlFor="input">
@@ -184,104 +173,3 @@ export default class Step12 extends Component {
 }
 
 
-// const { useState, useRef } = React;
-
-// export default function Uploader() {
-//    const file = useRef({});
-
-//    function readContent(file) {
-//       return new Promise((accept, reject) => {
-//          const reader = new FileReader();
-//          reader.readAsDataURL(file);
-//          reader.onload = () => accept({
-//             name: file.name,
-//             type: file.type,
-//             content: reader.result
-//          });
-//          reader.onerror = () => reject();
-//       });
-//    }
-
-//    function upload(file) { //  upload
-
-//       console.log(file)
-
-//       return new Promise(accept => {
-//          setTimeout(() => accept(file), 1000);
-//       });
-//    }
-
-//    function onSubmit(event) {
-//       event.preventDefault();
-
-//       const dataa = '';
-//       const filesAsArray = [...file.current.files];
-//       console.log([...file.current.files])
-//       const fileInfo = Promise.all(filesAsArray.map(readContent))
-//           .then(files => Promise.all(files.map(upload)))
-//           .then(console.log);
-
-
-//       // console.log(filesAsArray);
-//       // console.log(JSON.stringify(filesAsArray));
-
-//       fetch('http://localhost:5000/uploadimages', {
-//           method: 'POST',
-//           body: {
-//           "image" : fileInfo
-//           },
-//           mode: 'no-cors',
-//           headers: {
-//             'Content-Type': 'application/json',
-//           },
-//           enctype: "multipart/form-data",
-//         })
-//         .then((response) => {
-//           // response.json().then((body) => {
-//           // console.log(body);
-//           // });
-//           console.log(response);
-//         });
-
-
-//       return true;
-//    }
-
-//    return (
-//      <div className="uploadfiles">
-//        <form onSubmit={onSubmit}>
-//          <input ref={file} type="file" multiple={true} />
-//          <input type="submit" value="Upload" />
-//        </form>
-//      </div>
-//    );
-// }
-
-
-// // class ImageUpload extends React.Component {
-// //   state = {
-// //    files: []
-// //   }
-
-// //   fileSelectedHandler = (file: any) => {
-// //     let addedFiles = this.state.files.concat(file)
-// //     this.setState({ files: addedFiles })
-// //     console.log("upload file " + file.name)
-// //   }
-
-// //   render() {
-// //     return (
-// //       <div className="uploadfiles">
-// //       < form >
-// //         <div>
-// //           <h2>Upload images</h2>
-// //         </div>
-// //         <h3>Images</h3>
-// //         <input type="file" multiple onChange={this.fileSelectedHandler} />
-// //       </form>
-// //       </div>
-// //     )
-// //   }
-// // }
-
-// // export default ImageUpload

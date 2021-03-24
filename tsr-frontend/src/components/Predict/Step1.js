@@ -139,12 +139,12 @@ export default class Step1 extends Component {
                                 </button>
                             <label className="image-upload" htmlFor="input">
                                 <i className="material-icons"> {<BiImageAdd />}</i>
-                                Choose All Images
+                                Choose Your Image
                             </label>
                             <label className="image-upload" htmlFor="upld" >
                                 {/* onClick={this.getComponent.bind(this)} */}
                                 <i className="material-icons"> {<BsCloudUpload />}</i>
-                                Upload All Images
+                                Upload Your Images
                             </label>
                         </div>
 
