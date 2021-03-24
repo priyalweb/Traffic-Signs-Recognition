@@ -8,10 +8,11 @@ import { DEFAULT_OPTIONS } from '../../utils/augs'
 
 const Step2 = (props) => {
     const [selectedOptionIndex, setSelectedOptionIndex] = useState(0)
-    const [displayImage, setDisplayImage] = useState('assets/default-img.jpg')
+    // const [displayImage, setDisplayImage] = useState('assets/default-img.jpg')
 
     function handleSubmit(e) {
         e.preventDefault()
+        props.setDisplayImage('/assets/loader.gif')
         const len = e.target.length - 1
         console.log(DEFAULT_OPTIONS[selectedOptionIndex].name)
 
@@ -47,7 +48,7 @@ const Step2 = (props) => {
                 // var arr = new Uint8Array(res.data)
                 // var raw = String.fromCharCode.apply(null, arr)
                 // var b64 = btoa(unescape(encodeURIComponent(res.data)))
-                setDisplayImage(URL.createObjectURL(res.data))
+                props.setDisplayImage(URL.createObjectURL(res.data))
                 // console.log(b64)
             })
             .catch(err => console.log(err))
@@ -55,7 +56,9 @@ const Step2 = (props) => {
     }
 
     function handleResetOrUndo(e) {
+        e.preventDefault()
         console.log(e.target.value)
+        props.setDisplayImage('/assets/loader.gif')
         let formData = new FormData()
         formData.append('aug_mode', e.target.value)
 
@@ -78,7 +81,7 @@ const Step2 = (props) => {
                 // var arr = new Uint8Array(res.data)
                 // var raw = String.fromCharCode.apply(null, arr)
                 // var b64 = btoa(unescape(encodeURIComponent(res.data)))
-                setDisplayImage(URL.createObjectURL(res.data))
+                props.setDisplayImage(URL.createObjectURL(res.data))
                 // console.log(b64)
             })
             .catch(err => console.log(err))
@@ -88,7 +91,7 @@ const Step2 = (props) => {
         <>
             <div className="container2">
                 <div className="response-img">
-                    <img height="300" src={displayImage} alt="" />
+                    <img height="300" src={props.displayImage} alt="" />
                 </div>
             </div>
             <div>
