@@ -28,7 +28,7 @@ function Preprocessing(props) {
             let j = check[i];
             if (j > 8) {
                 data[e.target[j].id] = {}
-                formData.append(e.target[j].id, {})
+                formData.append(e.target[j].id, JSON.stringify({}))
             }
 
             else {
@@ -38,7 +38,7 @@ function Preprocessing(props) {
                     const obj = {}
                     obj[e.target[j].id] = e.target[j].value
                     data[e.target[k].id] = obj
-                    formData.append(e.target[k].id, obj)
+                    formData.append(e.target[k].id, JSON.stringify(obj))
                     j++;
                 }
             }
@@ -47,7 +47,7 @@ function Preprocessing(props) {
 
         if (e.target[11].checked === true) {
             data[e.target[12].value] = {}
-            formData.append(e.target[12].value, {})
+            formData.append(e.target[12].value, JSON.stringify({}))
         }
 
         if (e.target[4].checked === true) {
@@ -57,12 +57,12 @@ function Preprocessing(props) {
             obj[e.target[7].id] = e.target[7].value
             obj[e.target[8].id] = e.target[8].value
             data[e.target[4].id] = obj
-            formData.append(e.target[4].id, obj)
+            formData.append(e.target[4].id, JSON.stringify(obj))
         }
 
-        formData.append('input_type', 'predict')
+        // formData.append('input_type', 'predict')
 
-        console.log(JSON.stringify(data))
+        console.log(formData)
 
         const config = {
             headers: {
@@ -77,7 +77,7 @@ function Preprocessing(props) {
         }
 
         const url = props.url
-        axios.post(`${url}/predict_preprocess`, JSON.stringify(data), config)
+        axios.post(`${url}/predict_preprocess`, formData, config)
             .then(res => {
                 console.log(res.data)
                 setDisplayImage(URL.createObjectURL(res.data))

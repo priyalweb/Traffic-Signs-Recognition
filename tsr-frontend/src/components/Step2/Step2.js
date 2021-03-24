@@ -6,6 +6,8 @@ import './Step2.css';
 
 import { DEFAULT_OPTIONS } from '../../utils/augs'
 
+const augs_list = []
+
 const Step2 = (props) => {
     const [selectedOptionIndex, setSelectedOptionIndex] = useState(0)
     // const [displayImage, setDisplayImage] = useState('assets/default-img.jpg')
@@ -30,6 +32,8 @@ const Step2 = (props) => {
         formData.append('input_type', 'predict')
         console.log(data)
 
+        console.log(augs_list)
+
         const config = {
             headers: {
                 'content-type': 'multipart/form-data',
@@ -45,6 +49,7 @@ const Step2 = (props) => {
         const url = props.url
         axios.post(`${url}/augment`, formData, config)
             .then(res => {
+                augs_list.push(data)
                 console.log(res.data)
                 // var arr = new Uint8Array(res.data)
                 // var raw = String.fromCharCode.apply(null, arr)
@@ -62,6 +67,7 @@ const Step2 = (props) => {
         props.setDisplayImage('/assets/loader.gif')
         let formData = new FormData()
         formData.append('aug_mode', e.target.value)
+        formData.append('input_type', 'predict')
 
         const config = {
             headers: {
@@ -78,6 +84,7 @@ const Step2 = (props) => {
         const url = props.url
         axios.post(`${url}/augment`, formData, config)
             .then(res => {
+                augs_list.pop()
                 console.log(res.data)
                 // var arr = new Uint8Array(res.data)
                 // var raw = String.fromCharCode.apply(null, arr)
@@ -175,7 +182,11 @@ const Step2 = (props) => {
                 </div>
                 <div className="container1">
                     <div className="show_augs">
-                        {/* {augs_list} */}
+                        {augs_list.map((aug) => {
+                            return (
+                                <div> {JSON.stringify(aug).substring(8, JSON.stringify(aug).length - 2)} </div>
+                            )
+                        })}
                     </div>
                 </div>
             </div>
