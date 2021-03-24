@@ -16,7 +16,7 @@ export default class Step1 extends Component {
             base64: null,
             imageURL: '',
             order: '1',
-        
+
         }
         this.imageHandler = this.imageHandler.bind(this)
         this.handleUploadImage = this.handleUploadImage.bind(this);
@@ -41,18 +41,18 @@ export default class Step1 extends Component {
 
         const data = new FormData();
         data.append('file', this.uploadInput.files[0]);
-        data.append('input_type',"predict");
-         // data.append('filename', this.fileName.value);
-        
+        data.append('input_type', "predict");
+        // data.append('filename', this.fileName.value);
+
         console.log(this.uploadInput.files[0]);
         console.log(data);
         // console.log(this.uploadInput.files[0].name)
         // console.log(this.fileName.value);
         console.log(this.uploadInput.files[0]);
         console.log(data);
-        data.forEach((value,key) => {
-            console.log(key+value)
-            });
+        data.forEach((value, key) => {
+            console.log(key + value)
+        });
         console.log(this.props.url);
 
         axios({
@@ -69,8 +69,8 @@ export default class Step1 extends Component {
         }).then((res) => {
             console.log(res);
             console.log(res.data);
-            if(res.data !== null){
-                this.setState({order: '2'});
+            if (res.data !== null) {
+                this.setState({ order: '2' });
             }
         }, (err) => {
             console.log(err);
@@ -110,7 +110,7 @@ export default class Step1 extends Component {
                         {base64 !== null && this.state.order === '1' && <span style={{ color: 'green' }}>Image Chosen. Click on Upload your photo to continue.</span>}
                         <br></br>
                         {this.state.order !== '1' && this.props.base64 !== null && <span style={{ color: 'green' }}>Image uploaded. Please proceed to step 2.</span>}
-                        
+
                         <div className="img-holder">
                             <img src={profileImg} alt="" id="img" className="img" />
                         </div>
@@ -150,7 +150,7 @@ export default class Step1 extends Component {
 
                     </div>
                 </div>
-            </div>
+            </div >
         )
     }
 }

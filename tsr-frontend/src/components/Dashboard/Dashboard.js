@@ -26,7 +26,7 @@ const Dashboard = (props) => {
                     {/* classwise_accuracy_heatmap.png */}
                 </div>
                 <label>Classwise Accuracy Heatmap</label>
-                {/* <div className="stats1"> */}
+                <div className="stats1">
                     <div className="stat">
                         {/* <img src="/assets/training_accuracy.png" height="300" alt="" /> */}
                         <Images url={props.url+'/displayImages?id=baseline_training_and_validation_accuracy.png'} />         
@@ -40,7 +40,7 @@ const Dashboard = (props) => {
                         {/* baseline_training_and_validation_loss.png */}
                     </div>
                     <label>Training and Validation Loss</label>
-                {/* </div> */}
+                </div>
             </div>
         </div>
     )

@@ -4,6 +4,7 @@ import Step12 from "../Retrain/Step12";
 import Step2 from "../Step2/Step2";
 import Step0 from "../Step0/Step0";
 import Step1 from "../Predict/Step1";
+import Step3 from "../Step3/Step3"
 
 import "./Tab.css";
 
@@ -34,6 +35,12 @@ export default class Tabshow extends Component {
         // reader.readAsDataURL(e.target.files[0])
     };
 
+    setDisplayImage = (url) => {
+        this.setState({
+            displayImage: url
+        })
+    }
+
     render() {
         return (
             <div style={{ marginLeft: "0px" }}>
@@ -47,8 +54,8 @@ export default class Tabshow extends Component {
                         {<Step2 url={this.props.url} count={this.state.count}/>}
                     </div>
                     <div className="step3 col-12" label="Step 3">
-                        {/* <Step3 /> */}
-                        <p style={{ textAlign: "center" }}>...</p>
+                        <Step3 url={this.props.url} />
+                        {/* <p style={{ textAlign: "center" }}>...</p> */}
                     </div>
                 </Tabs>
             </div>

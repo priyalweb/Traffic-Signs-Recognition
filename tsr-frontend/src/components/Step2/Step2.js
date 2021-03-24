@@ -10,11 +10,12 @@ var namee;
 
 const Step2 = (props) => {
     const [selectedOptionIndex, setSelectedOptionIndex] = useState(0)
-    const [displayImage, setDisplayImage] = useState('assets/default-img.jpg')
+    // const [displayImage, setDisplayImage] = useState('assets/default-img.jpg')
 
 console.log(props.count , "alnkfa");
     function handleSubmit(e) {
         e.preventDefault()
+        props.setDisplayImage('/assets/loader.gif')
         const len = e.target.length - 1
         console.log(DEFAULT_OPTIONS[selectedOptionIndex].name)
 
@@ -36,6 +37,7 @@ console.log(props.count , "alnkfa");
             formData.append(e.target[i].id, e.target[i].value)
         }
 
+        formData.append('input_type', 'predict')
         console.log(data)
 
         const config = {
@@ -57,7 +59,7 @@ console.log(props.count , "alnkfa");
                 // var arr = new Uint8Array(res.data)
                 // var raw = String.fromCharCode.apply(null, arr)
                 // var b64 = btoa(unescape(encodeURIComponent(res.data)))
-                setDisplayImage(URL.createObjectURL(res.data))
+                props.setDisplayImage(URL.createObjectURL(res.data))
                 // console.log(b64)
             })
             .catch(err => console.log(err))
@@ -65,7 +67,9 @@ console.log(props.count , "alnkfa");
     }
 
     function handleResetOrUndo(e) {
+        e.preventDefault()
         console.log(e.target.value)
+        props.setDisplayImage('/assets/loader.gif')
         let formData = new FormData()
         formData.append('input_type',  namee)
         formData.append('aug_mode', e.target.value)
@@ -89,7 +93,7 @@ console.log(props.count , "alnkfa");
                 // var arr = new Uint8Array(res.data)
                 // var raw = String.fromCharCode.apply(null, arr)
                 // var b64 = btoa(unescape(encodeURIComponent(res.data)))
-                setDisplayImage(URL.createObjectURL(res.data))
+                props.setDisplayImage(URL.createObjectURL(res.data))
                 // console.log(b64)
             })
             .catch(err => console.log(err))
@@ -100,7 +104,7 @@ console.log(props.count , "alnkfa");
             <div className="container2">
                 <h2>{props.count}</h2>
                 <div className="response-img">
-                    <img height="300" src={displayImage} alt="" />
+                    <img height="300" src={props.displayImage} alt="" />
                 </div>
             </div>
             <div>
@@ -178,6 +182,12 @@ console.log(props.count , "alnkfa");
                     <div className="edit-options">
                         <button value="undo" onClick={(e) => handleResetOrUndo(e)}>Undo</button>
                         <button value="reset" onClick={(e) => handleResetOrUndo(e)}>Reset</button>
+                    </div>
+
+                </div>
+                <div className="container1">
+                    <div className="show_augs">
+                        {/* {augs_list} */}
                     </div>
                 </div>
             </div>

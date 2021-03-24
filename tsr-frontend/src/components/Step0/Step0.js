@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Typography from '@material-ui/core/Typography';
@@ -103,7 +103,7 @@ const useStyles = makeStyles((theme) => ({
 const Step0 = (props) => {
 
   const [count, setCount] = useState('0');
-  
+
   const classes = useStyles();
 
   console.log(count, "default");
@@ -113,11 +113,11 @@ const Step0 = (props) => {
 
   return (
     <>
-    <div>
-      {count === '0' && 
-        <div className={classes.root}>
-        
-        {/*   {images.map((image) => ( */}
+      <div>
+      {count === '0' &&
+          <div className={classes.root}>
+
+            {/*   {images.map((image) => ( */}
             <ButtonBase
               focusRipple
               // key={image.title}
@@ -148,20 +148,27 @@ const Step0 = (props) => {
                   <span className={classes.imageMarked} />
                 </Typography>
               </span>
-              
+
             </ButtonBase>
-          {/* ))} */}
+            {/* ))} */}
             <ButtonBase
-                focusRipple
-                // key={image.title}
-                className={classes.image}
-                focusVisibleClassName={classes.focusVisible}
+              focusRipple
+              // key={image.title}
+              className={classes.image}
+              focusVisibleClassName={classes.focusVisible}
+              style={{
+                width: "30%",
+              }}
+              onClick={() => {setCount('2') 
+                props.changeCount('Retrain')}}
+            >
+              <span
+                className={classes.imageSrc}
                 style={{
-                  width: "30%",
+                  // backgroundImage: `url(${image.url})`,
                 }}
-                onClick={() => {setCount('2')
-                 props.changeCount('Retrain')} }
-              >
+                
+              ></span>
                 <span
                   className={classes.imageSrc}
                   style={{
@@ -179,19 +186,19 @@ const Step0 = (props) => {
                     {/* {image.title} */}
                     Retrain
                     <span className={classes.imageMarked} />
-                  </Typography>
-                </span>
-              </ButtonBase>
-        </div>
+                </Typography>
+              </span>
+            </ButtonBase>
+          </div>
         }
         <div >
-        {/* {count === '1' && <Step1 countstate = {count} changestate = {setCount} */}
-        {count === '1' && <Step1 url={props.url}  /> }
+          {/* {count === '1' && <Step1 countstate = {count} changestate = {setCount} */}
+          {count === '1' && <Step1 url={props.url} />}
         </div>
         <div>
-        {count === '2' && <Step12 url={props.url}/>}
+          {count === '2' && <Step12 url={props.url} />}
         </div>
-    </div>
+      </div>
     </>
   );
 }
