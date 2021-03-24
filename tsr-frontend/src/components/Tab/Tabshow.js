@@ -17,8 +17,10 @@ export default class Tabshow extends Component {
             // base64: null
             count: '',
             input_type: '',
+            displayImage: '/assets/default-img.jpg',
         }
         this.countHandler = this.countHandler.bind(this)
+        this.setDisplayImage = this.setDisplayImage.bind(this)
     }
 
     countHandler = (value) => {
@@ -51,7 +53,7 @@ export default class Tabshow extends Component {
                     </div>
 
                     <div className="step2 col-12" label="Step 2">
-                        {<Step2 url={this.props.url} count={this.state.count}/>}
+                        {<Step2 url={this.props.url} count={this.state.count} setDisplayImage={this.setDisplayImage} displayImage={this.state.displayImage}/>}
                     </div>
                     <div className="step3 col-12" label="Step 3">
                         <Step3 url={this.props.url} />
