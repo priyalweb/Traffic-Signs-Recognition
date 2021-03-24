@@ -50,7 +50,7 @@ export default class Tabshow extends Component {
                         {<Step2 url={this.props.url} displayImage={this.state.displayImage} setDisplayImage={this.setDisplayImage} />}
                     </div>
                     <div className="step3 col-12" label="Step 3">
-                        <Step3 />
+                        <Step3 url={this.props.url} />
                         {/* <p style={{ textAlign: "center" }}>...</p> */}
                     </div>
                 </Tabs>

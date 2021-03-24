@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 
-import { BiImageAdd } from "react-icons/bi";
+import { BiImageAdd, BiReset } from "react-icons/bi";
+import { BsCloudUpload } from "react-icons/bs";
 import Step2 from '../Step2/Step2';
 import "../Tab/Tab.css";
 import "./Step1.css";
@@ -15,6 +16,7 @@ export default class Step1 extends Component {
             base64: null,
             imageURL: '',
             order: '1',
+
         }
         this.imageHandler = this.imageHandler.bind(this)
         this.handleUploadImage = this.handleUploadImage.bind(this);
@@ -33,28 +35,46 @@ export default class Step1 extends Component {
         reader.readAsDataURL(e.target.files[0])
     };
 
-    // constructor(props) {
-    //     super(props);
-
-    //     this.state = {
-    //       imageURL: '',
-    //       order: '1',
-    //     };
-
-    //     this.handleUploadImage = this.handleUploadImage.bind(this);
-    //   }
 
     handleUploadImage(ev) {
         ev.preventDefault();
 
         const data = new FormData();
         data.append('file', this.uploadInput.files[0]);
+        data.append('input_type', "predict");
+        // data.append('filename', this.fileName.value);
+
         console.log(this.uploadInput.files[0]);
         console.log(data);
         // console.log(this.uploadInput.files[0].name)
         // console.log(this.fileName.value);
-        data.append('filename', this.fileName.value);
+        console.log(this.uploadInput.files[0]);
+        console.log(data);
+        data.forEach((value, key) => {
+            console.log(key + value)
+        });
+        console.log(this.props.url);
 
+        axios({
+            url: `${this.props.url}/uploadimages`,
+            // url: 'http://localhost:5000/uploadimages',
+            method: 'POST',
+            headers: {
+                // contentType: 'application/json',
+                "Access-Control-Allow-Origin": "*",
+            },
+            // dataType : 'json',
+            mode: 'no-cors',
+            data: data //pass here..
+        }).then((res) => {
+            console.log(res);
+            console.log(res.data);
+            if (res.data !== null) {
+                this.setState({ order: '2' });
+            }
+        }, (err) => {
+            console.log(err);
+        })
 
         // fetch('http://localhost:5000/upload', {
         //   method: 'POST',
@@ -72,23 +92,6 @@ export default class Step1 extends Component {
         // //   });     
         //   console.log(response);
         // });
-
-        axios({
-            url: `${this.props.url}/uploadimages`,
-            method: 'POST',
-            headers: {
-                // contentType: 'application/json',
-                "Access-Control-Allow-Origin": "*",
-            },
-            // dataType : 'json',
-            mode: 'no-cors',
-            data: data //pass here..
-        }).then((res) => {
-            console.log(res);
-        }, (err) => {
-            console.log(err);
-        })
-
     }
 
 
@@ -103,15 +106,14 @@ export default class Step1 extends Component {
                 <div className="page">
                     <div className="container">
                         <h1 className="heading">Add your Sign</h1>
-                        {base64 !== null && <span style={{ color: 'green' }}>Image Chosen. Click on Upload your photo to continue.</span>}
+
+                        {base64 !== null && this.state.order === '1' && <span style={{ color: 'green' }}>Image Chosen. Click on Upload your photo to continue.</span>}
                         <br></br>
-                        {/* {this.state.order !== '1' && this.props.base64 !== null && <span style={{ color: 'green' }}>Image uploaded.</span>} */}
+                        {this.state.order !== '1' && this.props.base64 !== null && <span style={{ color: 'green' }}>Image uploaded. Please proceed to step 2.</span>}
+
                         <div className="img-holder">
                             <img src={profileImg} alt="" id="img" className="img" />
                         </div>
-
-                        {/* <input type="file" accept="image/*" name="image-upload" id="input" onChange={this.props.update} /> */}
-                        {/* onChange={this.sendData} */}
 
                         <form onSubmit={this.handleUploadImage}>
                             <div>
@@ -130,20 +132,25 @@ export default class Step1 extends Component {
                         </form>
 
                         <div className="label">
+                            <button className="image-upload" >
+                                {/* <button className="image-upload" > */}
+                                <i className="material-icons"> {<BiReset />}</i>
+                                Reset Choices
+                                </button>
                             <label className="image-upload" htmlFor="input">
                                 <i className="material-icons"> {<BiImageAdd />}</i>
-                                Choose your Photo
+                                Choose Your Image
                             </label>
                             <label className="image-upload" htmlFor="upld" >
                                 {/* onClick={this.getComponent.bind(this)} */}
-                                <i className="material-icons"> {<BiImageAdd />}</i>
-                                Upload your Photo
+                                <i className="material-icons"> {<BsCloudUpload />}</i>
+                                Upload Your Images
                             </label>
                         </div>
 
                     </div>
                 </div>
-            </div>
+            </div >
         )
     }
 }

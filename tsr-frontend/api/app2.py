@@ -27,6 +27,7 @@ config = {
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
+
 @app.route('/uploadimages', methods=['GET','POST'])
 def fileUpload():
     target=os.path.join(UPLOAD_FOLDER,'test_docs')

@@ -4,11 +4,11 @@ import Preprocessing from './Preprocessing/Preprocessing'
 import SelectModel from './SelectModel/SelectModel'
 import './Predict.css'
 
-function Predict() {
+function Predict(props) {
     return (
         <div className="predict">
-            <Preprocessing />
-            <SelectModel />
+            <Preprocessing url={props.url} />
+            <SelectModel url={props.url} />
         </div>
     )
 }

@@ -27,6 +27,7 @@ const Step2 = (props) => {
             formData.append(e.target[i].id, e.target[i].value)
         }
 
+        formData.append('input_type', 'predict')
         console.log(data)
 
         const config = {
@@ -169,6 +170,12 @@ const Step2 = (props) => {
                     <div className="edit-options">
                         <button value="undo" onClick={(e) => handleResetOrUndo(e)}>Undo</button>
                         <button value="reset" onClick={(e) => handleResetOrUndo(e)}>Reset</button>
+                    </div>
+
+                </div>
+                <div className="container1">
+                    <div className="show_augs">
+                        {/* {augs_list} */}
                     </div>
                 </div>
             </div>
