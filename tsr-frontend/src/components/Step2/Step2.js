@@ -6,21 +6,31 @@ import './Step2.css';
 
 import { DEFAULT_OPTIONS } from '../../utils/augs'
 
+var namee;
+
 const Step2 = (props) => {
     const [selectedOptionIndex, setSelectedOptionIndex] = useState(0)
     const [displayImage, setDisplayImage] = useState('assets/default-img.jpg')
 
+console.log(props.count , "alnkfa");
     function handleSubmit(e) {
         e.preventDefault()
         const len = e.target.length - 1
         console.log(DEFAULT_OPTIONS[selectedOptionIndex].name)
 
+        
+        if(props.count == 'Predict'){
+            namee = 'predict'
+        }else{
+            namee = 'retrain'
+        }
         const data = {}
         data['name'] = DEFAULT_OPTIONS[selectedOptionIndex].name
 
         let formData = new FormData()
         formData.append('aug_name', DEFAULT_OPTIONS[selectedOptionIndex].name)
         formData.append('aug_mode', 'run')
+        formData.append('input_type',  namee)
         for (let i = 0; i < len; i++) {
             data[e.target[i].id] = e.target[i].value
             formData.append(e.target[i].id, e.target[i].value)
@@ -57,6 +67,7 @@ const Step2 = (props) => {
     function handleResetOrUndo(e) {
         console.log(e.target.value)
         let formData = new FormData()
+        formData.append('input_type',  namee)
         formData.append('aug_mode', e.target.value)
 
         const config = {
@@ -87,6 +98,7 @@ const Step2 = (props) => {
     return (
         <>
             <div className="container2">
+                <h2>{props.count}</h2>
                 <div className="response-img">
                     <img height="300" src={displayImage} alt="" />
                 </div>

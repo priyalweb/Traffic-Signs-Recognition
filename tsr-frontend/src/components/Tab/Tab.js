@@ -30,7 +30,7 @@ class Tab extends Component {
       }
   
       return (
-        <div className="mt-5 mr-5 col-12 col-md-3">
+        <div className=" mr-5 col-12 col-md-3">
             <li 
             className={className}
             onClick={onClick}

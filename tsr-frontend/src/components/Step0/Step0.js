@@ -31,6 +31,7 @@ const useStyles = makeStyles((theme) => ({
   image: {
     position: 'relative',
     height: 200,
+    margin: "2px",
     [theme.breakpoints.down('xs')]: {
       width: '100% !important', // Overrides inline-style
       height: 100,
@@ -38,6 +39,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "rgb(247, 46, 46);",
     '&:hover, &$focusVisible': {
       zIndex: 1,
+       backgroundColor: "rgb(247, 46, 46);",
       '& $imageBackdrop': {
         opacity: 0.15,
       },
@@ -124,7 +126,8 @@ const Step0 = (props) => {
               style={{
                 width: "30%", border: "0px 1px 0px 0px solid white",
               }}
-              onClick={() => setCount('1')}
+              onClick={() => {setCount('1') 
+               props.changeCount('Predict')}}
             >
               <span
                 className={classes.imageSrc}
@@ -156,7 +159,8 @@ const Step0 = (props) => {
                 style={{
                   width: "30%",
                 }}
-                onClick={() => setCount('2')}
+                onClick={() => {setCount('2')
+                 props.changeCount('Retrain')} }
               >
                 <span
                   className={classes.imageSrc}
