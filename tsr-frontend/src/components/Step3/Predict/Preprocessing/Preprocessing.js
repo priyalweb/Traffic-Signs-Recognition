@@ -62,7 +62,7 @@ function Preprocessing(props) {
 
         formData.append('input_type', 'predict')
 
-        console.log(data)
+        console.log(JSON.stringify(data))
 
         const config = {
             headers: {
@@ -77,7 +77,7 @@ function Preprocessing(props) {
         }
 
         const url = props.url
-        axios.post(`${url}/predict_preprocess`, formData, config)
+        axios.post(`${url}/predict_preprocess`, JSON.stringify(data), config)
             .then(res => {
                 console.log(res.data)
                 setDisplayImage(URL.createObjectURL(res.data))
