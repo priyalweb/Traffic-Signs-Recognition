@@ -1,0 +1,19 @@
+.segregation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.segregation_input input {
+  outline: none;
+}
+
+.segregation_input label {
+  margin: 1rem;
+}
+
+.segregation_inputs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
