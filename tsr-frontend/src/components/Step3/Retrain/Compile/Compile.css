@@ -1,0 +1,17 @@
+.compile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem 0;
+  width: 100%;
+}
+
+.compile-items {
+  display: flex;
+  margin: 1rem 0;
+}
+
+.sidebar {
+  width: 50%;
+  height: 250px;
+}

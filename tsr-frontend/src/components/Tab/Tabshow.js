@@ -24,7 +24,7 @@ export default class Tabshow extends Component {
     }
 
     countHandler = (value) => {
-        this.setState({count: value})
+        this.setState({ count: value })
         // const reader = new FileReader();
         // reader.onload = () => {
         //     if (reader.readyState === 2) {
@@ -48,15 +48,15 @@ export default class Tabshow extends Component {
             <div style={{ marginLeft: "0px" }}>
                 <Tabs>
                     <div className="step1 col-12 " label="Step 1">
-                        <Step0 url={this.props.url} count={this.state.count} changeCount={this.countHandler}/>
+                        <Step0 url={this.props.url} count={this.state.count} changeCount={this.countHandler} />
                         {/* {<Step1 base64={this.state.base64} profileImg={this.state.profileImg} update={this.countHandler} />} */}
                     </div>
 
                     <div className="step2 col-12" label="Step 2">
-                        {<Step2 url={this.props.url} count={this.state.count} setDisplayImage={this.setDisplayImage} displayImage={this.state.displayImage}/>}
+                        {<Step2 url={this.props.url} count={this.state.count} setDisplayImage={this.setDisplayImage} displayImage={this.state.displayImage} />}
                     </div>
                     <div className="step3 col-12" label="Step 3">
-                        <Step3 url={this.props.url} />
+                        <Step3 url={this.props.url} count={this.state.count} />
                         {/* <p style={{ textAlign: "center" }}>...</p> */}
                     </div>
                 </Tabs>

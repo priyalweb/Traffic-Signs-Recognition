@@ -4,6 +4,7 @@ import Balancing from './Balancing/Balancing'
 import Preprocessing from './Preprocessing/Preprocessing'
 import Segregation from './Segregation/Segregation'
 import DesignOrUsePretrained from './DesignOrUsePretrained/DesignOrUsePretrained'
+import Compile from './Compile/Compile'
 import Train from './Train/Train'
 import './Retrain.css'
 
@@ -14,6 +15,7 @@ function Retrain(props) {
             <Preprocessing url={props.url} />
             <Segregation url={props.url} />
             <DesignOrUsePretrained url={props.url} />
+            <Compile url={props.url} />
             <Train url={props.url} />
         </div>
     )

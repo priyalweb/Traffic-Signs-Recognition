@@ -11,7 +11,7 @@ function DesignOrUsePretrained(props) {
     return (
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <header>
-                <h4> Insert Heading </h4>
+                <h4> Model </h4>
             </header>
             <div className="common-inputs">
                 <div className="common-input">

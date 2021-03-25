@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "rgb(247, 46, 46);",
     '&:hover, &$focusVisible': {
       zIndex: 1,
-       backgroundColor: "rgb(247, 46, 46);",
+      backgroundColor: "rgb(247, 46, 46);",
       '& $imageBackdrop': {
         opacity: 0.15,
       },
@@ -114,7 +114,7 @@ const Step0 = (props) => {
   return (
     <>
       <div>
-      {count === '0' &&
+        {count === '0' &&
           <div className={classes.root}>
 
             {/*   {images.map((image) => ( */}
@@ -126,8 +126,10 @@ const Step0 = (props) => {
               style={{
                 width: "30%", border: "0px 1px 0px 0px solid white",
               }}
-              onClick={() => {setCount('1') 
-               props.changeCount('Predict')}}
+              onClick={() => {
+                setCount('1')
+                props.changeCount('predict')
+              }}
             >
               <span
                 className={classes.imageSrc}
@@ -159,31 +161,33 @@ const Step0 = (props) => {
               style={{
                 width: "30%",
               }}
-              onClick={() => {setCount('2') 
-                props.changeCount('Retrain')}}
+              onClick={() => {
+                setCount('2')
+                props.changeCount('retrain')
+              }}
             >
               <span
                 className={classes.imageSrc}
                 style={{
                   // backgroundImage: `url(${image.url})`,
                 }}
-                
+
               ></span>
-                <span
-                  className={classes.imageSrc}
-                  style={{
-                    // backgroundImage: `url(${image.url})`,
-                  }}
-                />
-                <span className={classes.imageBackdrop} />
-                <span className={classes.imageButton}>
-                  <Typography
-                    component="span"
-                    variant="subtitle1"
-                    color="inherit"
-                    className={classes.imageTitle}
-                  >
-                    {/* {image.title} */}
+              <span
+                className={classes.imageSrc}
+                style={{
+                  // backgroundImage: `url(${image.url})`,
+                }}
+              />
+              <span className={classes.imageBackdrop} />
+              <span className={classes.imageButton}>
+                <Typography
+                  component="span"
+                  variant="subtitle1"
+                  color="inherit"
+                  className={classes.imageTitle}
+                >
+                  {/* {image.title} */}
                     Retrain
                     <span className={classes.imageMarked} />
                 </Typography>

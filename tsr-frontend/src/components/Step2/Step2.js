@@ -21,7 +21,7 @@ const Step2 = (props) => {
         console.log(DEFAULT_OPTIONS[selectedOptionIndex].name)
 
 
-        if (props.count == 'Predict') {
+        if (props.count == 'predict') {
             namee = 'predict'
         } else {
             namee = 'retrain'
@@ -38,7 +38,7 @@ const Step2 = (props) => {
             formData.append(e.target[i].id, e.target[i].value)
         }
 
-        formData.append('input_type', 'predict')
+        // formData.append('input_type', 'predict')
         console.log(data)
 
         console.log(augs_list)
@@ -145,8 +145,8 @@ const Step2 = (props) => {
                                                             id={parameter.parameter_name}
                                                             name={parameter.parameter_name}
                                                             defaultValue={parameter.default_value}
-                                                            min="0"
-                                                            max="1"
+                                                            min={parameter.min}
+                                                            max={parameter.max}
                                                             step="any"
                                                         />
                                                     </div>
@@ -161,6 +161,8 @@ const Step2 = (props) => {
                                                             id={parameter.parameter_name}
                                                             name={parameter.parameter_name}
                                                             defaultValue={parameter.default_value}
+                                                            min={parameter.min}
+                                                            max={parameter.max}
                                                             step="any"
                                                         />
                                                     </div>
@@ -174,6 +176,8 @@ const Step2 = (props) => {
                                                         id={parameter.parameter_name}
                                                         name={parameter.parameter_name}
                                                         defaultValue={parameter.default_value}
+                                                        min={parameter.min}
+                                                        max={parameter.max}
                                                         step="any"
                                                     />
                                                 </div>
