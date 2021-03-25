@@ -42,13 +42,16 @@ const Images = (props) => {
     } , []);
 
     return (
-        <div className="dashboard">
-                <div className="testing">        
-                    { loading ? ( <img src={displayImage} height="500" alt="" /> ) : (
+        <>
+        {/* <div className="dashboard">
+                <div className="testing">          */}
+                    { loading ? ( <img src={displayImage} height={props.height} alt="" /> ) : (
                     // {loading ? ( displayImage ) : (
                         // <ReactBootStrap.Spinner animation="grow" variant="danger" />
-                        <Button variant="primary" disabled style={{textAlign: "center", 
-                                alignItems: "center", backgroundColor: "rgb(247, 46, 46)", border: "0px" , fontSize: "large"}}>
+                        <div style={{    backgroundColor: "rgb(247 46 46 / 5%)"  }}>
+                        <Button variant="primary" disabled style={{textAlign: "center", justifyContent: "center", justifyItems: "center",
+                                alignItems: "center", justifySelf:"center", alignSelf:"center", backgroundColor: "rgb(247, 46, 46)",margin: "20px 45%",
+                                width: "120px", border: "0px" , fontSize: "large"}}>
                             <Spinner
                             as="span"
                             animation="grow"
@@ -58,9 +61,12 @@ const Images = (props) => {
                             />
                             Loading...
                         </Button>
+                        </div>
+        //                 <div>.........</div>
                     )}                
-                </div>
-        </div>
+                {/* </div> 
+        </div> */}
+        </>
     )
 }
 
