@@ -105,7 +105,7 @@ export default class Step1 extends Component {
             <div id="stp1">
                 <div className="page">
                     <div className="container">
-                        <h1 className="heading">Add your Sign</h1>
+                        <h1 className="heading">Add Your Sign</h1>
 
                         {base64 !== null && this.state.order === '1' && <span style={{ color: 'green' }}>Image Chosen. Click on Upload your photo to continue.</span>}
                         <br></br>
@@ -132,8 +132,8 @@ export default class Step1 extends Component {
                         </form>
 
                         <div className="label">
-                            <button className="image-upload" >
-                                {/* <button className="image-upload" > */}
+                            {/* <button className="image-upload" onClick={this.props.changestate('0')}> */}
+                            <button className="image-upload" onClick={event =>  window.location.href='/input'} >
                                 <i className="material-icons"> {<BiReset />}</i>
                                 Reset Choices
                                 </button>

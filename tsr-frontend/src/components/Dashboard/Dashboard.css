@@ -1,9 +1,9 @@
-.dashboard {
+ .dashboard {
   /* display: flex; */
-  position: absolute;
-  margin-left: 260px;
-  padding: 40px;
-  width: calc(100% - 300px);
+  /* position: absolute; */
+  /* margin-left: 100px; */
+  /* padding: 40px;
+  width: calc(100% - 300px); */
 }
 
 header {
@@ -13,6 +13,8 @@ header {
 header h4 {
   text-transform: capitalize;
   font-size: 28px;
+  /* margin-left: 220px;  */
+  text-align: center;
 }
 
 .stats {
@@ -20,6 +22,10 @@ header h4 {
   flex-direction: column;
   width: 100% !important;
   align-items: center !important;
+}
+.testing{
+  /* margin: auto; */
+  align-items: center;
 }
 
 .stats1 {
@@ -38,4 +44,5 @@ header h4 {
   font-weight: 450;
   margin: 1rem 0;
   color: #444;
-}
+  text-align: center !important;
+} 

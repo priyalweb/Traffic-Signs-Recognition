@@ -18,7 +18,8 @@ function App() {
       <Sidebar />
       <ConnectToServer url={url} setUrl={setUrl} />
       <Switch>
-        <Route path="/dashboard" component={Dashboard} />
+      {/* <Route path="/dashboard" component={Dashboard} /> */}
+        <Route path="/dashboard" render={() => <Dashboard url={url} />} />
         <Route path="/input" render={() => <Tabshow url={url} />} />
         <Redirect to="/dashboard" />
       </Switch>

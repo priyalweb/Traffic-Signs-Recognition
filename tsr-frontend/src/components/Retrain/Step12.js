@@ -125,7 +125,7 @@ export default class Step12 extends Component {
 
     return (
       <div className="uploadfiles">
-        <h1>Upload Photo Batch with Class Id</h1>
+        <h1>Upload Photo Batch With Class Id</h1>
 
         {this.state.order === '1' && <span style={{ color: 'green' }}>Images Chosen. Click on Upload Photo Batch to continue.</span>}
                         <br></br>
@@ -147,7 +147,7 @@ export default class Step12 extends Component {
         </form>
 
         <div className="label">
-          <button className="image-upload">
+          <button className="image-upload" onClick={event =>  window.location.href='/input'}>
               <i className="material-icons"> {<BiReset />}</i>
             Reset Choices
           </button>
