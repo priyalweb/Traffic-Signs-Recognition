@@ -8,6 +8,7 @@ import Tabshow from "./components/Tab/Tabshow";
 import ConnectToServer from './components/ConnectToServer/ConnectToServer'
 import Dashboard from './components/Dashboard/Dashboard'
 import Output from './components/Output/Output';
+import Guide from './components/Guide/Guide';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <Route path="/dashboard" render={() => <Dashboard url={url} />} />
         <Route path="/input" render={() => <Tabshow url={url} />} />
         <Route path="/output" render={() => <Output url={url} />} />
+        <Route path="/guide" render={() => <Guide url={url} />} />
         <Redirect to="/dashboard" />
       </Switch>
 

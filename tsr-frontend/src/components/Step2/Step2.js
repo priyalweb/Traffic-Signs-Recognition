@@ -7,7 +7,7 @@ import './Step2.css';
 import { DEFAULT_OPTIONS } from '../../utils/augs'
 
 const augs_list = []
-var namee;
+var namee,name2;
 
 const Step2 = (props) => {
     const [selectedOptionIndex, setSelectedOptionIndex] = useState(0)
@@ -22,9 +22,11 @@ const Step2 = (props) => {
 
 
         if (props.count == 'predict') {
-            namee = 'predict'
+            namee = 'predict';
+            name2 = 'Predict';
         } else {
-            namee = 'retrain'
+            namee = 'retrain';
+            name2 = 'Retrain';
         }
         const data = {}
         data['name'] = DEFAULT_OPTIONS[selectedOptionIndex].name
@@ -111,7 +113,13 @@ const Step2 = (props) => {
     return (
         <>
             <div className="container2">
-                <h2>{props.count}</h2>
+                <div style={{display: "inline-block"}}>
+                <h4 style={{ marginRight: '180px', display: "inline-block", color: '#8d8d8d'}} > {props.count} </h4>
+                <h2 style={{paddingRight: '250px', display: "inline-block"}}><b>Origin --> Augmented Image</b></h2>
+                </div>
+                
+                
+                
                 <div className="response-img">
                     <img height="300" src={props.displayImage} alt="" />
                 </div>

@@ -7,8 +7,8 @@ import './Step3.css'
 function Step3(props) {
     return (
         <div className="container3">
-            { props.count === 'predict' && <Predict url={props.url} />}
-            { props.count === 'retrain' && <Retrain url={props.url} />}
+            { props.count === 'Predict' && <Predict url={props.url} />}
+            { props.count === 'Retrain' && <Retrain url={props.url} />}
         </div>
     )
 }
