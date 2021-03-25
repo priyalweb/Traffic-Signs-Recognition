@@ -6,27 +6,24 @@ import './Step2.css';
 
 import { DEFAULT_OPTIONS } from '../../utils/augs'
 
-<<<<<<< HEAD
 const augs_list = []
-=======
 var namee;
->>>>>>> cb758fcb2292326d1d486c3970221ffb6b77137b
 
 const Step2 = (props) => {
     const [selectedOptionIndex, setSelectedOptionIndex] = useState(0)
     // const [displayImage, setDisplayImage] = useState('assets/default-img.jpg')
 
-console.log(props.count , "alnkfa");
+    console.log(props.count, "alnkfa");
     function handleSubmit(e) {
         e.preventDefault()
         props.setDisplayImage('/assets/loader.gif')
         const len = e.target.length - 1
         console.log(DEFAULT_OPTIONS[selectedOptionIndex].name)
 
-        
-        if(props.count == 'Predict'){
+
+        if (props.count == 'Predict') {
             namee = 'predict'
-        }else{
+        } else {
             namee = 'retrain'
         }
         const data = {}
@@ -35,7 +32,7 @@ console.log(props.count , "alnkfa");
         let formData = new FormData()
         formData.append('aug_name', DEFAULT_OPTIONS[selectedOptionIndex].name)
         formData.append('aug_mode', 'run')
-        formData.append('input_type',  namee)
+        formData.append('input_type', namee)
         for (let i = 0; i < len; i++) {
             data[e.target[i].id] = e.target[i].value
             formData.append(e.target[i].id, e.target[i].value)
@@ -78,7 +75,7 @@ console.log(props.count , "alnkfa");
         console.log(e.target.value)
         props.setDisplayImage('/assets/loader.gif')
         let formData = new FormData()
-        formData.append('input_type',  namee)
+        formData.append('input_type', namee)
         formData.append('aug_mode', e.target.value)
         formData.append('input_type', 'predict')
 
