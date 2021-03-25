@@ -107,7 +107,7 @@ export default class Step1 extends Component {
                     <div className="container">
                         <h1 className="heading">Add Your Sign</h1>
 
-                        {base64 !== null && this.state.order === '1' && <span style={{ color: 'green' }}>Image Chosen. Click on Upload your photo to continue.</span>}
+                        {base64 !== null && this.state.order === '1' && <span style={{ color: 'green' }}>Image Chosen. Click on Upload Your Image to continue.</span>}
                         <br></br>
                         {this.state.order !== '1' && this.props.base64 !== null && <span style={{ color: 'green' }}>Image uploaded. Please proceed to step 2.</span>}
 
@@ -144,7 +144,7 @@ export default class Step1 extends Component {
                             <label className="image-upload" htmlFor="upld" >
                                 {/* onClick={this.getComponent.bind(this)} */}
                                 <i className="material-icons"> {<BsCloudUpload />}</i>
-                                Upload Your Images
+                                Upload Your Image
                             </label>
                         </div>
 
