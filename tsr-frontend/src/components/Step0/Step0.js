@@ -106,9 +106,9 @@ const Step0 = (props) => {
 
   const classes = useStyles();
 
-  console.log(count, "default");
-  console.log(count, "predict");
-  console.log(count, "retrain");
+  // console.log(count, "default");
+  // console.log(count, "predict");
+  // console.log(count, "retrain");
 
 
   return (
