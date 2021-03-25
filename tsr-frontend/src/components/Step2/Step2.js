@@ -84,7 +84,10 @@ const Step2 = (props) => {
         const url = props.url
         axios.post(`${url}/augment`, formData, config)
             .then(res => {
-                augs_list.pop()
+                if (e.target.value === 'undo')
+                    augs_list.pop()
+                else if (e.target.value === 'reset')
+                    augs_list.length = 0
                 console.log(res.data)
                 // var arr = new Uint8Array(res.data)
                 // var raw = String.fromCharCode.apply(null, arr)
