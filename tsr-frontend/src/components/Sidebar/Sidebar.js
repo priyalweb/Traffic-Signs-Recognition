@@ -48,11 +48,11 @@ const Header = () => {
                 </NavLink>
               </MenuItem>
               <MenuItem icon={<BsFillBarChartFill />}>
-                <NavLink className="nav-link" to="/output1">
-                  Output 1
+                <NavLink className="nav-link" to="/output">
+                  Output
                   </NavLink>
               </MenuItem>
-              <MenuItem icon={<BsFillBarChartFill />}>
+              {/* <MenuItem icon={<BsFillBarChartFill />}>
                 <NavLink className="nav-link" to="/output2">
                   Output 2
                   </NavLink>
@@ -61,7 +61,7 @@ const Header = () => {
                 <NavLink className="nav-link" to="/output3">
                   Output 3
                   </NavLink>
-              </MenuItem>
+              </MenuItem> */}
             </Menu>
           </SidebarContent>
           <SidebarFooter>

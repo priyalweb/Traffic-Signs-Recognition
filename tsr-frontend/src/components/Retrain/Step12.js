@@ -13,7 +13,7 @@ export default class Step12 extends Component {
     super(props)
 
     this.state = {
-      value: 1,
+      value: 'add_new',
       order: '0',
     };
 
@@ -118,7 +118,8 @@ export default class Step12 extends Component {
   render() {
     $(function(){
       var $select = $(".1-50");
-      for (var i=1;i<=50;i++){
+      $select.append($('<option></option>').val('add_new').html('ADD NEW'))
+      for (var i=0;i<=42;i++){
           $select.append($('<option></option>').val(i).html(i))
       }
   });
