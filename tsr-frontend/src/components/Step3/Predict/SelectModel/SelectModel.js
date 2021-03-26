@@ -62,8 +62,8 @@ function SelectModel(props) {
                         </select>
                         {/* <p>{STEP3_PREDICT[1].description}</p> */}
                     </div>
-                    <div className="submit">
-                        <button type="submit">Predict</button>
+                    <div className="submit" style={{ width: "100%" }}>
+                        <button style={{ width: "100%" }} type="submit">Predict</button>
                     </div>
 
                     {loading && <img src="/assets/loader.gif" alt="" />}

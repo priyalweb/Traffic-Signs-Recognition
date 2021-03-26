@@ -3,6 +3,7 @@ import axios from "axios";
 import { Component } from 'react';
 import { BiImageAdd, BiReset, BiPointer } from "react-icons/bi";
 import { BsCloudUpload } from "react-icons/bs";
+import Images from "../Images";
 import $ from 'jquery';
 import './Step12.css';
 
@@ -135,7 +136,8 @@ export default class Step12 extends Component {
 
         {/* <div style={{padding: "5%"}}> */}
         <div className="response-img" style={{ padding: "2rem" }}>
-          <img src="/assets/classes-of-German-Traffic-Sign.png" height="280px" style={{width: '100%'}} alt="" />
+          {/* <img src="/assets/classes-of-German-Traffic-Sign.png" height="280px" style={{width: '100%'}} alt="" /> */}
+          <Images url={this.props.url+'/displayImages?id=plot_of_classes.png'} height={"550px"}/>
         </div>
         <form>
           <div className="">
