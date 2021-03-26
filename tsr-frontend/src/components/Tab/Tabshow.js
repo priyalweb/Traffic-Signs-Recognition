@@ -55,7 +55,7 @@ export default class Tabshow extends Component {
                     <div className="step2 col-12" label="Augment">
                         {<Step2 url={this.props.url} count={this.state.count} setDisplayImage={this.setDisplayImage} displayImage={this.state.displayImage} />}
                     </div>
-                    <div className="step3 col-12" label="Train">
+                    <div className="step3 col-12" label="Tuning">
                         <Step3 url={this.props.url} count={this.state.count} />
                     </div>
                     {/* {this.state.count === '1' && 
