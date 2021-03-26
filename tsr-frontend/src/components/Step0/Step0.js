@@ -128,7 +128,7 @@ const Step0 = (props) => {
               }}
               onClick={() => {
                 setCount('1')
-                props.changeCount('predict')
+                props.changeCount('Predict')
               }}
             >
               <span
@@ -163,7 +163,7 @@ const Step0 = (props) => {
               }}
               onClick={() => {
                 setCount('2')
-                props.changeCount('retrain')
+                props.changeCount('Retrain')
               }}
             >
               <span

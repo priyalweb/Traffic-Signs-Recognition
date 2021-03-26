@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
 
 import './Segregation.css'
 
 function Segregation(props) {
+
+    const [loading, setLoading] = useState(false)
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -30,9 +32,11 @@ function Segregation(props) {
         }
 
         const url = props.url
+        setLoading(true)
         axios.post(`${url}/retrain_segregate`, formData, config)
             .then(res => {
                 console.log(res)
+                setLoading(false)
             })
             .catch(err => console.log(err))
     }
@@ -58,6 +62,7 @@ function Segregation(props) {
                 </div>
                 <div className="submit">
                     <button type="submit">Submit</button>
+                    {loading && <img src="/assets/loader.gif" alt="" />}
                 </div>
             </form>
         </div>

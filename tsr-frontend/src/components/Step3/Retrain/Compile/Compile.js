@@ -15,16 +15,16 @@ function Compile(props) {
         const parameter_array = []
         const data = {}
         name_array[0] = COMPILE_OPTIONS[selectedOptionIndex].name
-        data['name'] = JSON.stringify(name_array)
+        data['opt_list1'] = JSON.stringify(name_array)
         let formData = new FormData()
-        formData.append('name', JSON.stringify(name_array))
+        formData.append('opt_list1', JSON.stringify(name_array))
         const len = e.target.length - 1
         for (let i = 0; i < len; i++) {
             parameter_array.push(parseFloat(e.target[i].value))
         }
 
-        data['parameters'] = JSON.stringify([parameter_array])
-        formData.append('parameters', JSON.stringify([parameter_array]))
+        data['opt_list2'] = JSON.stringify(parameter_array)
+        formData.append('opt_list2', JSON.stringify(parameter_array))
 
         console.log(data)
 
@@ -74,37 +74,7 @@ function Compile(props) {
                             COMPILE_OPTIONS.map((augmentation, index) => {
                                 if (index === selectedOptionIndex) {
                                     return augmentation.parameters.map((parameter) => {
-                                        if (parameter.parameter_name === 'prob') {
-                                            return (
-                                                <div className="ind_input">
-                                                    <label htmlFor={parameter.parameter_name}> Enter {parameter.parameter_name} </label>
-                                                    <input
-                                                        type={parameter.input_type}
-                                                        id={parameter.parameter_name}
-                                                        name={parameter.parameter_name}
-                                                        defaultValue={parameter.default_value}
-                                                        min="0"
-                                                        max="1"
-                                                        step="any"
-                                                    />
-                                                </div>
-                                            )
-                                        }
-                                        if (augmentation.name === 'add_rain') {
-                                            return (
-                                                <div className="ind_input">
-                                                    <label htmlFor={parameter.parameter_name}> Enter {parameter.parameter_name} (heavy/drizzle) </label>
-                                                    <input
-                                                        type={parameter.input_type}
-                                                        id={parameter.parameter_name}
-                                                        name={parameter.parameter_name}
-                                                        defaultValue={parameter.default_value}
-                                                        step="any"
-                                                    />
-                                                </div>
-                                            )
-                                        }
-                                        else return (
+                                        return (
                                             <div className="ind_input">
                                                 <label htmlFor={parameter.parameter_name}> Enter {parameter.parameter_name} </label>
                                                 <input

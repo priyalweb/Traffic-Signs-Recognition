@@ -25,11 +25,11 @@ export const DESIGN_DATA = [
         name: 'Dense',
         parameters: {
             units: 0,
-            activation_function: ['none', 'relu'],
+            activation_function: ['none', 'relu', 'softmax'],
         },
     },
     {
-        name: 'BatchNormalisation',
+        name: 'BatchNormalization',
         parameters: {},
     },
     {
