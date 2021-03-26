@@ -19,7 +19,7 @@ export default class Step12 extends Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
-  
+
   }
 
   state = {
@@ -27,7 +27,7 @@ export default class Step12 extends Component {
   }
 
   handleChange(event) {
-    this.setState({value: event.target.value});
+    this.setState({ value: event.target.value });
   }
 
 
@@ -35,11 +35,11 @@ export default class Step12 extends Component {
 
     console.log(e.target.files, "$$$$");
     console.log(e.target.files[0], "$$$$")
-   
+
     let file = e.target.files
     console.log(file);
-    if(this.state.file !== null){
-      this.setState({order: '1'});
+    if (this.state.file !== null) {
+      this.setState({ order: '1' });
     }
 
 
@@ -57,16 +57,16 @@ export default class Step12 extends Component {
     let formdata = new FormData()
     console.log(file);
 
-    
+
     // formdata.append('name' , 'image-data');
-    formdata.append('input_type',"retrain");
-    formdata.append('class_name',this.state.value)
+    formdata.append('input_type', "retrain");
+    formdata.append('class_name', this.state.value)
     formdata.append('file', file);
     // data.append('file', file);
     formdata.append('filename', this.fileName.value);
-    formdata.forEach((value,key) => {
-      console.log(key+value)
-      });
+    formdata.forEach((value, key) => {
+      console.log(key + value)
+    });
     for (var key in file) {
       formdata.append(key, file[key]);
     }
@@ -106,8 +106,8 @@ export default class Step12 extends Component {
       data: formdata //pass here..
     }).then((res) => {
       console.log(res);
-      if(res.data !== null){
-        this.setState({order: '2'});
+      if (res.data !== null) {
+        this.setState({ order: '2' });
       }
     }, (err) => {
       console.log(err);
@@ -117,27 +117,27 @@ export default class Step12 extends Component {
   }
 
   render() {
-    $(function(){
+    $(function () {
       var $select = $(".1-50");
       $select.append($('<option></option>').val('add_new').html('ADD NEW'))
-      for (var i=0;i<=42;i++){
-          $select.append($('<option></option>').val(i).html(i))
+      for (var i = 0; i <= 42; i++) {
+        $select.append($('<option></option>').val(i).html(i))
       }
-  });
+    });
 
     return (
-      <div className="uploadfiles" style={{margin: "0% 4% 4% 6%",}}>
+      <div className="uploadfiles" style={{ margin: "0% 4% 4% 6%", }}>
         <h1>Upload Photo Batch With Class Id</h1>
 
 
         {this.state.order === '1' && <span style={{ color: 'green', fontWeight: "bold" }}>Images Chosen. Click on Upload Photo Batch to continue.</span>}
-                        <br></br>
-        {this.state.order === '2' && <span style={{ color: 'green', fontWeight: "bold"  }}>Images Batch uploaded. Please proceed to step 2.</span>}
+        <br></br>
+        {this.state.order === '2' && <span style={{ color: 'green', fontWeight: "bold" }}>Images Batch uploaded. Please proceed to step 2.</span>}
 
         {/* <div style={{padding: "5%"}}> */}
-        <div className="response-img" style={{ padding: "2rem" }}>
+        <div className="response-img" style={{ display: 'flex', justifyContent: 'center' }}>
           {/* <img src="/assets/classes-of-German-Traffic-Sign.png" height="280px" style={{width: '100%'}} alt="" /> */}
-          <Images url={this.props.url+'/displayImages?id=plot_of_classes.png'} height={"550px"}/>
+          <img src='/assets/plot_of_classes.png' height="450px" />
         </div>
         <form>
           <div className="">
@@ -151,22 +151,22 @@ export default class Step12 extends Component {
             <input ref={(ref) => { this.fileName = "imgg" }} type="text" placeholder="Enter the desired name of file" />
           </div>
 
-          <button type="button" id='upld' style={{display: "none"}} onClick={(e) => this.handleUpload(e)}>Upload</button>
+          <button type="button" id='upld' style={{ display: "none" }} onClick={(e) => this.handleUpload(e)}>Upload</button>
         </form>
 
         <div className="label">
-          <button className="image-upload" onClick={event =>  window.location.href='/input'}>
-              <i className="material-icons"> {<BiReset />}</i>
+          <button className="image-upload" onClick={event => window.location.href = '/input'}>
+            <i className="material-icons"> {<BiReset />}</i>
             Reset Choices
           </button>
           <label id="dropdown" className="image-upload">
-           <i className="material-icons"> {<BiPointer />}</i>
+            <i className="material-icons"> {<BiPointer />}</i>
           Choose Class ID:
-          <select className="1-50" value={this.state.value} onChange={this.handleChange} style={{margin:"2px", padding:"4px"}}>
-          </select>
-        </label>
+          <select className="1-50" value={this.state.value} onChange={this.handleChange} style={{ margin: "2px", padding: "4px" }}>
+            </select>
+          </label>
           <label className="image-upload" htmlFor="input">
-          <i className="material-icons"> {<BiImageAdd />}</i>
+            <i className="material-icons"> {<BiImageAdd />}</i>
             Choose Photo Batch
           </label>
           <label className="image-upload" htmlFor="upld" >
@@ -175,7 +175,7 @@ export default class Step12 extends Component {
           </label>
         </div>
       </div>
-      
+
     );
   }
 }

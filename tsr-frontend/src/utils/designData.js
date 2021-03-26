@@ -14,7 +14,7 @@ export const DESIGN_DATA = [
         parameters: {
             poolsize: [2, 3, 4, 5],
             strides: [1, 2, 3, 4, 5],
-            padding: ['same', 'valid'],
+            // padding: ['same', 'valid'],
         },
     },
     {

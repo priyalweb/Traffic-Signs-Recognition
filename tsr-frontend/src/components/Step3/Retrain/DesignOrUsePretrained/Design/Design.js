@@ -212,13 +212,13 @@ function Design(props) {
                                             </select>
 
                                             <hr />
-                                            <label htmlFor="padding">Padding</label>
+                                            {/* <label htmlFor="padding">Padding</label>
 
                                             <select name="padding" id="padding">
                                                 {data.parameters.padding.map((val) => {
                                                     return <option value={val}>{val}</option>;
                                                 })}
-                                            </select>
+                                            </select> */}
                                         </div>
                                     );
                                 } else if (DESIGN_DATA[index].name == 'Flatten') {
