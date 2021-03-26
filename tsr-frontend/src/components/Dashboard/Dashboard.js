@@ -12,6 +12,8 @@ const useStyles = makeStyles({
         minWidth: 275,
         elevation: 15,
         raised: true,
+        
+      marginBottom: "5%",
         '& .MuiCardContent-root':{
             padding: '0',
         },
@@ -75,7 +77,7 @@ const Dashboard = (props) => {
                 <Grid item md={10}>
                     <Card className={classes.root} variant="outlined" style={{ margin: "10px" }} >
                         <CardContent alignItems="center" className={classes.Media}>
-                            <h5 style={{ textAlign: "center", fontWeight: '900', }}>Classes of German Traffic Sign </h5>
+                            <h5 style={{ textAlign: "center", fontWeight: '900', }}>Classes of German Traffic Sign Recognised Dataset</h5>
                             <Typography className={classes.title} color="textSecondary" gutterBottom>
                                 German Traffic Sign Recognition Dataset (GTSRB) is an image classification dataset. The images are photos of traffic signs. The images are classified into 43 classes. The training set contains 39209 labeled images, and the test set contains 12630 images.
                     </Typography>
@@ -85,9 +87,7 @@ const Dashboard = (props) => {
                             {/* <Images url={props.url+'/displayImages?id=classes-of-German-Traffic-Sign.png'} height={"280px"} /> */}
 
                         </CardContent>
-                        <CardActions>
-                            <Button size="small" >Learn More</Button>
-                        </CardActions>
+                         
                     </Card>
                 </Grid>
                 <Grid item md={1}></Grid>
@@ -105,9 +105,7 @@ const Dashboard = (props) => {
                             {/* <Images url={props.url+'/displayImages?id=training_images_per_category_sorted.png'} height={"550px"}/> */}
 
                         </CardContent>
-                        <CardActions>
-                            <Button size="small" >Learn More</Button>
-                        </CardActions>
+                         
                     </Card>
                 </Grid>
                 <Grid item md={1}></Grid>
@@ -124,9 +122,7 @@ const Dashboard = (props) => {
                             </div>
                             {/* <Images url={props.url+'/displayImages?id=baseline_training_and_validation_accuracy.png'} height={"350px"} /> */}
                         </CardContent>
-                        <CardActions>
-                            <Button size="small" >Learn More</Button>
-                        </CardActions>
+                         
                     </Card>
                 </Grid>
                 <Grid item md={5}>
@@ -142,9 +138,7 @@ const Dashboard = (props) => {
                             {/* <Images url={props.url+'/displayImages?id=baseline_training_and_validation_loss.png'} height={"350px"} /> */}
 
                         </CardContent>
-                        <CardActions>
-                            <Button size="small" >Learn More</Button>
-                        </CardActions>
+                         
                     </Card>
                 </Grid>
                 <Grid item md={1}></Grid>
@@ -159,9 +153,7 @@ const Dashboard = (props) => {
                             <Typography className={classes.title} color="textSecondary" gutterBottom> </Typography>
                             {/* <Images url={props.url+'/displayImages?id=classwise_accuracy_heatmap.png'} height={"1000"} /> */}
                         </CardContent>
-                        <CardActions>
-                            <Button size="small">Learn More</Button>
-                        </CardActions>
+                         
                     </Card>
                 </Grid>
                 <Grid item md={1}></Grid>
@@ -178,9 +170,7 @@ const Dashboard = (props) => {
                             </div>
                             {/* <Images url={props.url+'/displayImages?id=classwise_accuracy_heatmap.png'} height={"1000"} /> */}
                         </CardContent>
-                        <CardActions>
-                            <Button size="small">Learn More</Button>
-                        </CardActions>
+                         
                     </Card>
                 </Grid>
                 <Grid item md={1}></Grid>
@@ -196,9 +186,7 @@ const Dashboard = (props) => {
                             <Typography className={classes.title} color="textSecondary" gutterBottom> </Typography>
                             {/* <Images url={props.url+'/displayImages?id=classwise_accuracy_heatmap.png'} height={"1000"} /> */}
                         </CardContent>
-                        <CardActions>
-                            <Button size="small">Learn More</Button>
-                        </CardActions>
+                         
                     </Card>
                 </Grid>
                 <Grid item md={1}></Grid>
@@ -206,7 +194,7 @@ const Dashboard = (props) => {
                 <Grid item md={10}>
                     <Card className={classes.root} variant="outlined" style={{ margin: "10px" }}>
                         <CardContent alignItems="center" style={{}} className={classes.Media}>
-                            <h5 style={{ textAlign: "center", fontWeight: '900', }}>visualising The Activations Of Different Layers</h5>
+                            <h5 style={{ textAlign: "center", fontWeight: '900', }}>Visualising The Activations Of Different Layers</h5>
                             {/* style={{width:'fit-content', padding:"10px"}} */}
                             <div style={{width: "fit-content"}}>
                             <img src="/assets/visualisingTheActivationsOfDifferentLayers.jpeg" height="600" style={{width: '100%'}} alt="" />
@@ -214,9 +202,7 @@ const Dashboard = (props) => {
                             <Typography className={classes.title} color="textSecondary" gutterBottom> </Typography>
                             {/* <Images url={props.url+'/displayImages?id=classwise_accuracy_heatmap.png'} height={"1000"} /> */}
                         </CardContent>
-                        <CardActions>
-                            <Button size="small">Learn More</Button>
-                        </CardActions>
+                         
                     </Card>
                 </Grid>
                 <Grid item md={1}></Grid>
@@ -232,9 +218,7 @@ const Dashboard = (props) => {
                             <Typography className={classes.title} color="textSecondary" gutterBottom> </Typography>
                             {/* <Images url={props.url+'/displayImages?id=classwise_accuracy_heatmap.png'} height={"1000"} /> */}
                         </CardContent>
-                        <CardActions>
-                            <Button size="small">Learn More</Button>
-                        </CardActions>
+                         
                     </Card>
                 </Grid>
                 <Grid item md={6}>
@@ -243,14 +227,12 @@ const Dashboard = (props) => {
                             <h5 style={{ textAlign: "center", fontWeight: '900', }}>Dictionary Showing the Train and Validation Accuracies and Losses at the End of the Last Epoch</h5>
                             {/* style={{width:'fit-content', padding:"10px"}} */}
                             <div style={{}}>
-                            <img src="/assets/dictionary.jpeg" height="200" style={{width: '100%', margin: '0 auto !important'}} alt="" />
+                            <img src="/assets/dictionary.jpeg" height="150" style={{width: '100%', margin: '0 auto !important'}} alt="" />
                             </div>
                             <Typography className={classes.title} color="textSecondary" gutterBottom> </Typography>
                             {/* <Images url={props.url+'/displayImages?id=classwise_accuracy_heatmap.png'} height={"1000"} /> */}
                         </CardContent>
-                        <CardActions>
-                            <Button size="small">Learn More</Button>
-                        </CardActions>
+                         
                     </Card>
                 </Grid>
                 <Grid item md={1}></Grid>
@@ -266,9 +248,7 @@ const Dashboard = (props) => {
                             <Typography className={classes.title} color="textSecondary" gutterBottom> </Typography>
                             {/* <Images url={props.url+'/displayImages?id=classwise_accuracy_heatmap.png'} height={"1000"} /> */}
                         </CardContent>
-                        <CardActions>
-                            <Button size="small">Learn More</Button>
-                        </CardActions>
+                         
                     </Card>
                 </Grid>
                 <Grid item md={1}></Grid>

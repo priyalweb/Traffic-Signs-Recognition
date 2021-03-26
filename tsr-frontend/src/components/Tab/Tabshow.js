@@ -56,9 +56,18 @@ export default class Tabshow extends Component {
                         {<Step2 url={this.props.url} count={this.state.count} setDisplayImage={this.setDisplayImage} displayImage={this.state.displayImage} />}
                     </div>
                     <div className="step3 col-12" label="Tuning">
-                        <Step3 url={this.props.url} count={this.state.count} />
-                        {/* <p style={{ textAlign: "center" }}>...</p> */}
+                            <Step3 url={this.props.url} count={this.state.count} />
                     </div>
+                    {/* {this.state.count === '1' && 
+                        <div className="step3 col-12" label="Predict">
+                            <Step3 url={this.props.url} count={this.state.count} />
+                        </div>
+                    }
+                    {this.state.count === '2' && 
+                        <div className="step3 col-12" label="Train">
+                            <Step3 url={this.props.url} count={this.state.count} />
+                        </div>
+                    } */}
                 </Tabs>
             </div>
         )

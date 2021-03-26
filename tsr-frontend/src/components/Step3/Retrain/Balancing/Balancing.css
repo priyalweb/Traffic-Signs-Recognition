@@ -10,12 +10,18 @@
 }
 
 .common-input input {
+  margin: 1rem;
   outline: none;
+  /* width: 100%; */
+  margin-top: 0;
+
 }
 
 .balancing-inputs input {
   margin: 1rem;
   outline: none;
+  /* width: 100%; */
+  
 }
 
 .balancing button {
@@ -25,4 +31,5 @@
   border: 1px solid transparent;
   padding: 0.5rem 1.5rem;
   margin: 0 1rem;
+  width: 100%;
 }

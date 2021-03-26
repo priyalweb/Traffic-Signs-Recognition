@@ -10,6 +10,7 @@ const useStyles = makeStyles({
       minWidth: 275,
       elevation: 15,
       raised: true,
+      marginBottom: "5%",
     },
     bullet: {
       display: 'inline-block',
@@ -62,16 +63,14 @@ export default function Output(props) {
                 <Grid item md={10}>
                 <Card className={classes.root} variant="outlined" style={{margin: "10px"}} elevation={15}>
                 <CardContent alignItems="center"  className={classes.Media}>
-                    <h5 style={{textAlign: "center", fontWeight: '900',}}>Number of training images per category</h5>
+                    <h5 style={{textAlign: "center", fontWeight: '900',}}>Number of images per class</h5>
                     <Typography className={classes.title} color="textSecondary" gutterBottom>
                     </Typography>
                     {/* <img src="/assets/training_images_per_category_sorted.png" height="550px" alt="" /> */}
                     <Images url={props.url+'/displayImages?id=image_data_distribution.png'} height={"550px"}/>
                     
                 </CardContent>
-                <CardActions>
-                    <Button size="small" >Learn More</Button>
-                </CardActions>
+                 
                 </Card>  
                 </Grid>
                 <Grid item md={1}></Grid>
@@ -85,9 +84,7 @@ export default function Output(props) {
                         {/* <img src="/assets/TrainingandValidationAccuracy.jpeg"    height="350px"  alt="" /> */}
                         <Images url={props.url+'/displayImages?id=accuracy.png'} height={"350px"} />
                     </CardContent>
-                    <CardActions>
-                        <Button size="small" >Learn More</Button>
-                    </CardActions>
+                     
                     </Card>
                 </Grid>
                 <Grid item md={5}>
@@ -100,9 +97,7 @@ export default function Output(props) {
                         <Images url={props.url+'/displayImages?id=loss.png'} height={"350px"} />
                         
                     </CardContent>
-                    <CardActions>
-                        <Button size="small" >Learn More</Button>
-                    </CardActions>
+                     
                     </Card>
                 </Grid>
                 <Grid item md={1}></Grid>
@@ -117,9 +112,7 @@ export default function Output(props) {
                         {/* <img src="/assets/PredictionoftheClassesofImages.jpeg" height="1000"  alt=""  /> */}
                         <Images url={props.url+'/displayImages?id=bar_chart.png'} height={"900"} />   
                     </CardContent>
-                    <CardActions>
-                        <Button size="small">Learn More</Button>
-                    </CardActions>
+                     
                     </Card>
                 </Grid>
                 <Grid item md={1}></Grid>
@@ -133,9 +126,7 @@ export default function Output(props) {
                         {/* <img src="/assets/ClasswiseAccuracyHeatmap.jpeg" height="1000" alt=""  /> */}
                         <Images url={props.url+'/displayImages?id=confusion_matrix.png'} height={"1000"} />  
                     </CardContent>
-                    <CardActions>
-                        <Button size="small">Learn More</Button>
-                    </CardActions>
+                     
                     </Card>
                 </Grid>
                 <Grid item md={1}></Grid>
@@ -152,9 +143,7 @@ export default function Output(props) {
                             <Typography className={classes.title} color="textSecondary" gutterBottom> </Typography>
                             <Images url={props.url+'/displayImages?id=_roc_curve.png'} height={"600"} />
                         </CardContent>
-                        <CardActions>
-                            <Button size="small">Learn More</Button>
-                        </CardActions>
+                         
                     </Card>
                 </Grid>
                 <Grid item md={1}></Grid>
@@ -170,9 +159,7 @@ export default function Output(props) {
                             <Typography className={classes.title} color="textSecondary" gutterBottom> </Typography>
                             <Images url={props.url+'/displayImages?id=AL0.png'} height={"600"} />
                         </CardContent>
-                        <CardActions>
-                            <Button size="small">Learn More</Button>
-                        </CardActions>
+                         
                     </Card>
                 </Grid>
                 <Grid item md={1}></Grid>
@@ -188,9 +175,7 @@ export default function Output(props) {
                             <Typography className={classes.title} color="textSecondary" gutterBottom> </Typography>
                             <Images url={props.url+'/displayImages?id=os.png'} height={"200"} />
                         </CardContent>
-                        <CardActions>
-                            <Button size="small">Learn More</Button>
-                        </CardActions>
+                         
                     </Card>
                 </Grid>
                 <Grid item md={1}></Grid>
@@ -206,9 +191,7 @@ export default function Output(props) {
                             <Typography className={classes.title} color="textSecondary" gutterBottom> </Typography>
                             <Images url={props.url+'/displayImages?id=pil_text.png'} height={"900"} />
                         </CardContent>
-                        <CardActions>
-                            <Button size="small">Learn More</Button>
-                        </CardActions>
+                         
                     </Card>
                 </Grid>
                 <Grid item md={1}></Grid>

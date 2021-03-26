@@ -55,50 +55,54 @@ function Compile(props) {
     return (
         <div className="compile">
             <header>
-                <h4>Compile</h4>
+                <h2><b>Compile</b></h2>
             </header>
-            <div className="compile-items">
-                <div className="sidebar">
-                    {COMPILE_OPTIONS.map((augmentation, index) => {
-                        return (
-                            <SidebarItem
-                                key={index}
-                                name={augmentation.name}
-                                active={index === selectedOptionIndex}
-                                handleClick={() => setSelectedOptionIndex(index)}
-                            />
-                        )
-                    })}
+            <div className="response-img" style={{ padding: "2rem" }}>
+
+                <div className="compile-items">
+                    <div className="sidebar">
+                        {COMPILE_OPTIONS.map((augmentation, index) => {
+                            return (
+                                <SidebarItem
+                                    key={index}
+                                    name={augmentation.name}
+                                    active={index === selectedOptionIndex}
+                                    handleClick={() => setSelectedOptionIndex(index)}
+                                />
+                            )
+                        })}
+                    </div>
+
+                    <form onSubmit={(e) => handleSubmit(e)} className="user_inputs">
+                        <div className="inputs">
+                            {
+                                COMPILE_OPTIONS.map((augmentation, index) => {
+                                    if (index === selectedOptionIndex) {
+                                        return augmentation.parameters.map((parameter) => {
+                                            return (
+                                                <div className="ind_input">
+                                                    <label htmlFor={parameter.parameter_name}> Enter {parameter.parameter_name} </label>
+                                                    <input
+                                                        type={parameter.input_type}
+                                                        id={parameter.parameter_name}
+                                                        name={parameter.parameter_name}
+                                                        defaultValue={parameter.default_value}
+                                                        step="any"
+                                                    />
+                                                </div>
+                                            )
+                                        })
+                                    }
+                                    else return <div></div>
+                                })
+                            }
+                        </div>
+                        <div className="submit" style={{ width: "100%" }}>
+                            <button style={{ width: "100%" }} type="submit">Compile</button>
+                            {loading && <img src="/assets/loader.gif" alt="" />}
+                        </div>
+                    </form>
                 </div>
-                <form onSubmit={(e) => handleSubmit(e)} className="user_inputs">
-                    <div className="inputs">
-                        {
-                            COMPILE_OPTIONS.map((augmentation, index) => {
-                                if (index === selectedOptionIndex) {
-                                    return augmentation.parameters.map((parameter) => {
-                                        return (
-                                            <div className="ind_input">
-                                                <label htmlFor={parameter.parameter_name}> Enter {parameter.parameter_name} </label>
-                                                <input
-                                                    type={parameter.input_type}
-                                                    id={parameter.parameter_name}
-                                                    name={parameter.parameter_name}
-                                                    defaultValue={parameter.default_value}
-                                                    step="any"
-                                                />
-                                            </div>
-                                        )
-                                    })
-                                }
-                                else return <div></div>
-                            })
-                        }
-                    </div>
-                    <div className="submit">
-                        <button type="submit">Apply</button>
-                        {loading && <img src="/assets/loader.gif" alt="" />}
-                    </div>
-                </form>
             </div>
         </div>
     )

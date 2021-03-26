@@ -49,22 +49,24 @@ function Train(props) {
     return (
         <div className="train">
             <header>
-                <h4>Train</h4>
+                <h2><b>Train</b></h2>
             </header>
-            <form className="train_inputs" onSubmit={(e) => handleSubmit(e)}>
-                <div className="train_input">
-                    <label htmlFor="batch_size">batch_size</label>
-                    <input type="number" defaultValue="64" step="any" name="batch_size" id="batch_size" />
-                </div>
-                <div className="train_input">
-                    <label htmlFor="epochs">epochs</label>
-                    <input type="number" defaultValue="3" step="any" name="epochs" id="epochs" />
-                </div>
-                <div className="submit">
-                    <button type="submit">Submit</button>
-                    {loading && <img src="/assets/loader.gif" alt="" />}
-                </div>
-            </form>
+            <div className="response-img" style={{ padding: "2rem" }}>
+                <form className="train_inputs" onSubmit={(e) => handleSubmit(e)}>
+                    <div className="train_input">
+                        <label htmlFor="batch_size">batch_size</label>
+                        <input type="number" defaultValue="64" step="any" name="batch_size" id="batch_size" />
+                    </div>
+                    <div className="train_input">
+                        <label htmlFor="epochs">epochs</label>
+                        <input type="number" defaultValue="10" step="any" name="epochs" id="epochs" />
+                    </div>
+                    <div className="submit" style={{ width: "100%" }}>
+                        <button style={{ width: "100%" }} type="submit">Train</button>
+                        {loading && <img src="/assets/loader.gif" alt="" />}
+                    </div>
+                </form>
+            </div>
         </div>
     )
 }

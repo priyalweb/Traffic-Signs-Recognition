@@ -57,7 +57,7 @@ function Pretrained(props) {
                 })}
             </select>
             <div className="submit">
-                <button type="submit">Submit</button>
+                <button style={{ width: "100%" }} type="submit">Submit</button>
                 {loading && <img src="/assets/loader.gif" alt="" />}
             </div>
         </form>

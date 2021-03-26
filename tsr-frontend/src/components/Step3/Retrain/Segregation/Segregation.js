@@ -44,8 +44,9 @@ function Segregation(props) {
     return (
         <div className="segregation">
             <header>
-                <h4>Segregation</h4>
+                <h2><b>Segregation</b></h2>
             </header>
+            <div className="response-img" style={{ padding: "2rem" }}>
             <form onSubmit={(e) => handleSubmit(e)} className="segregation_inputs">
                 <div className="segregation_input">
                     <label htmlFor="test_size">Enter Test Size</label>
@@ -60,11 +61,12 @@ function Segregation(props) {
                         <option value="kennard_stone"> kennard_stone </option>
                     </select>
                 </div>
-                <div className="submit">
-                    <button type="submit">Submit</button>
+                <div className="submit" style={{width: "100%"}}>
+                    <button style={{width: "100%"}} type="submit">Submit</button>
                     {loading && <img src="/assets/loader.gif" alt="" />}
                 </div>
             </form>
+            </div>
         </div>
     )
 }

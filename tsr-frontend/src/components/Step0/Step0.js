@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     alignItems: "center",
     marginLeft: "220px",
-    marginTop: "10%",
+    marginTop: "6%",
   },
   image: {
     position: 'relative',
@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "rgb(247, 46, 46);",
     '&:hover, &$focusVisible': {
       zIndex: 1,
-      backgroundColor: "rgb(247, 46, 46);",
+      backgroundColor: "rgb(255 0 0)",
       '& $imageBackdrop': {
         opacity: 0.15,
       },
@@ -96,6 +96,9 @@ const useStyles = makeStyles((theme) => ({
     left: 'calc(50% - 9px)',
     transition: theme.transitions.create('opacity'),
   },
+  desc: {
+    color: theme.palette.common.white,
+  },
 }));
 
 
@@ -113,10 +116,19 @@ const Step0 = (props) => {
 
   return (
     <>
-      <div>
+      <div >
+        {count === '0' && 
+          <div style={{display: "inline-block", marginLeft:" 240px"}}>
+            <div style={{margin: "0 auto" }}>
+          <h1><b>Choose a Path: </b></h1>
+              {/* <h3>1. Predict on images using a pre-train model</h3>
+              <h3>2. Train a new model</h3> */}
+          </div>
+          </div>
+         
+        }
         {count === '0' &&
           <div className={classes.root}>
-
             {/*   {images.map((image) => ( */}
             <ButtonBase
               focusRipple
@@ -150,7 +162,12 @@ const Step0 = (props) => {
                   <span className={classes.imageMarked} />
                 </Typography>
               </span>
-
+              <h6
+                  className="desc"
+                  style={{paddingTop: "25%" , color: 'white',}}
+                  >
+                <b>Predict on images using a pre-train model</b>
+              </h6>
             </ButtonBase>
             {/* ))} */}
             <ButtonBase
@@ -192,6 +209,12 @@ const Step0 = (props) => {
                     <span className={classes.imageMarked} />
                 </Typography>
               </span>
+              <h6
+                  className="desc"
+                  style={{paddingTop: "25%" , color: 'white',}}
+                  >
+                <b>Train a new model</b>
+              </h6>
             </ButtonBase>
           </div>
         }

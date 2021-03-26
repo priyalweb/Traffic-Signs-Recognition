@@ -44,31 +44,39 @@ function SelectModel(props) {
     return (
         <div className="select-model">
             <header>
-                <h4>Select Model</h4>
+                <h2><b>Select pre-trained model for prediction</b></h2>
             </header>
-            <form onSubmit={(e) => handleSubmit(e)}>
-                <div className="model_name">
-                    <label htmlFor="select-model">Choose a Model</label>
-                    <select name="select-model" id="select-model">
-                        {
-                            STEP3_PREDICT[1].parameters[0].models.map((model) => {
-                                return (
-                                    <option value={model}> {model} </option>
-                                )
-                            })
-                        }
-                    </select>
-                    {/* <p>{STEP3_PREDICT[1].description}</p> */}
-                </div>
-                <div className="submit">
-                    <button type="submit">Select</button>
-                </div>
-            </form>
-            {loading && <img src="/assets/loader.gif" alt="" />}
-            { loading === false && loading1 === true && <div className="outputs">
-                <p>The predicted class id of the image is <strong className="class_id">{id}</strong> </p>
-                <img src="/assets/plot_of_classes.png" height="400" alt="" />
-            </div>}
+            <div className="response-img" style={{ padding: "2rem" }}>
+                <form onSubmit={(e) => handleSubmit(e)}>
+                    <div className="model_name">
+                        <label htmlFor="select-model">Choose a Model</label>
+                        <select name="select-model" id="select-model">
+                            {
+                                STEP3_PREDICT[1].parameters[0].models.map((model) => {
+                                    //model ke names: Model1: Improved_Model and Model2: Baseline_Model
+                                    return (
+                                        <option value={model}> {model} </option>
+                                    )
+                                })
+                            }
+                        </select>
+                        {/* <p>{STEP3_PREDICT[1].description}</p> */}
+                    </div>
+                    <div className="submit">
+                        <button type="submit">Predict</button>
+                    </div>
+
+                    {loading && <img src="/assets/loader.gif" alt="" />}
+                    {loading === false && loading1 === true && <div className="outputs">
+                        <p>The predicted class id of the image is <strong className="class_id">{id}</strong> </p>
+                        <img src="/assets/plot_of_classes.png" height="400" alt="" />
+                    </div>}
+
+                    {/* Class Detected: class_id */}
+
+
+                </form>
+            </div>
         </div>
     )
 }
