@@ -6,6 +6,7 @@ import './Balancing.css'
 function Balancing(props) {
 
     const [inputList, setInputList] = useState([{ id: "", number: "" }]);
+    const [loading, setLoading] = useState(false)
 
     // handle input change
     const handleInputChange = (e, index) => {
@@ -61,9 +62,11 @@ function Balancing(props) {
         }
 
         const url = props.url
+        setLoading(true)
         axios.post(`${url}/retrain_balance`, formData, config)
             .then(res => {
                 console.log(res)
+                setLoading(false)
             })
             .catch(err => console.log(err))
 
@@ -105,6 +108,7 @@ function Balancing(props) {
                 })}
                 <div className="submit">
                     <button type="submit">Submit</button>
+                    {loading && <img src="/assets/loader.gif" alt="" />}
                 </div>
             </form>
         </div>

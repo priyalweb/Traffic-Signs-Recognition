@@ -6,7 +6,7 @@ export const COMPILE_OPTIONS = [
                 parameter_name: 'learning_rate',
                 type: 'float',
                 input_type: 'number',
-                default_value: 0,
+                default_value: 0.01,
                 value: null
             },
             {
@@ -20,7 +20,7 @@ export const COMPILE_OPTIONS = [
                 parameter_name: 'Decay',
                 type: 'float',
                 input_type: 'number',
-                default_value: 0,
+                default_value: 0.01,
                 value: null
             },
         ]
@@ -32,7 +32,7 @@ export const COMPILE_OPTIONS = [
                 parameter_name: 'learning_rate',
                 type: 'float',
                 input_type: 'number',
-                default_value: 0,
+                default_value: 0.0001,
                 value: null
             },
             {
@@ -46,14 +46,14 @@ export const COMPILE_OPTIONS = [
                 parameter_name: 'RHO_value',
                 type: 'float',
                 input_type: 'number',
-                default_value: 0,
+                default_value: 0.9,
                 value: null
             },
             {
-                parameter_name: 'Epslon_value',
+                parameter_name: 'Epsilon_value',
                 type: 'float',
                 input_type: 'number',
-                default_value: 0,
+                default_value: Math.pow(Math.E, -7).toFixed(5),
                 value: null
             },
         ]
@@ -65,28 +65,28 @@ export const COMPILE_OPTIONS = [
                 parameter_name: 'learning_rate',
                 type: 'float',
                 input_type: 'number',
-                default_value: 0,
+                default_value: 0.001,
                 value: null
             },
             {
                 parameter_name: 'Beta1',
                 type: 'float',
                 input_type: 'number',
-                default_value: 0,
+                default_value: 0.9,
                 value: null
             },
             {
                 parameter_name: 'Beta2',
                 type: 'float',
                 input_type: 'number',
-                default_value: 0,
+                default_value: 0.99,
                 value: null
             },
             {
-                parameter_name: 'Epslon',
+                parameter_name: 'Epsilon',
                 type: 'float',
                 input_type: 'number',
-                default_value: 0,
+                default_value: Math.pow(Math.E, -7).toFixed(5),
                 value: null
             },
         ]

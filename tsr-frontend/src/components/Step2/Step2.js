@@ -7,13 +7,14 @@ import './Step2.css';
 import { DEFAULT_OPTIONS } from '../../utils/augs'
 
 const augs_list = []
-var namee,name2;
+var namee, name2;
 
 const Step2 = (props) => {
     const [selectedOptionIndex, setSelectedOptionIndex] = useState(0)
-    // const [displayImage, setDisplayImage] = useState('assets/default-img.jpg')
+    const [displayImage, setDisplayImage] = useState('assets/default-img.jpg')
+    // const [augs_list, setAugsList] = useState([])
 
-    console.log(props.count, "alnkfa");
+    console.log(props.count);
     function handleSubmit(e) {
         e.preventDefault()
         props.setDisplayImage('/assets/loader.gif')
@@ -57,10 +58,14 @@ const Step2 = (props) => {
             responseType: 'blob'
         }
 
+        // const temp = augs_list.splice()
+        // temp.push(data)
+        // setAugsList(data)
         const url = props.url
+        augs_list.push(data)
         axios.post(`${url}/augment`, formData, config)
             .then(res => {
-                augs_list.push(data)
+
                 console.log(res.data)
                 // var arr = new Uint8Array(res.data)
                 // var raw = String.fromCharCode.apply(null, arr)
@@ -93,13 +98,15 @@ const Step2 = (props) => {
             responseType: 'blob'
         }
 
+        if (e.target.value === 'undo')
+            augs_list.pop()
+        else if (e.target.value === 'reset')
+            augs_list.length = 0
+
         const url = props.url
         axios.post(`${url}/augment`, formData, config)
             .then(res => {
-                if (e.target.value === 'undo')
-                    augs_list.pop()
-                else if (e.target.value === 'reset')
-                    augs_list.length = 0
+
                 console.log(res.data)
                 // var arr = new Uint8Array(res.data)
                 // var raw = String.fromCharCode.apply(null, arr)
@@ -117,9 +124,9 @@ const Step2 = (props) => {
                 <h4 style={{ marginRight: '180px', display: "inline-block", color: '#8d8d8d'}} > {props.count} </h4>
                 <h2 style={{paddingRight: '250px', display: "inline-block"}}><b>Augmented Image</b></h2>
                 </div>
-                
-                
-                
+
+
+
                 <div className="response-img">
                     <img height="300" src={props.displayImage} alt="" />
                 </div>
@@ -206,11 +213,12 @@ const Step2 = (props) => {
                     </div>
 
                 </div>
-                <div className="container1">
+                <div className="container1 augs_list">
+                    <h4>Applied Augmentations: </h4>
                     <div className="show_augs">
                         {augs_list.map((aug) => {
                             return (
-                                <div> {JSON.stringify(aug).substring(8, JSON.stringify(aug).length - 2)} </div>
+                                <div> {JSON.stringify(aug).substring(1, JSON.stringify(aug).length - 1)} </div>
                             )
                         })}
                     </div>

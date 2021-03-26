@@ -1,15 +1,21 @@
 import React, { useState } from 'react';
+import axios from 'axios'
 
 import { DESIGN_DATA } from '../../../../../utils/designData';
 import SidebarItem from '../../../../Sidebar/Sidebar';
 
 import './Design.css';
 
-function Design() {
+const layerSetting = []
+const layers_list = []
+
+function Design(props) {
     const [selectedOptionIndex, setSelectedOptionIndex] = useState(0);
     // const [data, setData] = useState(null);
 
     const [dynamicInput, setDynamicInput] = useState(<div></div>);
+
+    // const [layerSetting, setLayerSetting] = useState([])
 
     // let dynamicInput = <div></div>;
 
@@ -21,9 +27,93 @@ function Design() {
         // generateInputFeilds();
     };
 
+    function handleAdd(e) {
+        e.preventDefault()
+        console.log(e)
+
+        const data = {}
+        const formData = new FormData()
+        const len = e.target.length - 1
+        data['layer_name'] = DESIGN_DATA[selectedOptionIndex].name
+        formData.append('layer_name', DESIGN_DATA[selectedOptionIndex].name)
+
+        for (let i = 0; i < len; i++) {
+            const temp = parseFloat(e.target[i].value)
+            console.log(temp)
+            if (isNaN(temp))
+                layerSetting.push(e.target[i].value)
+            else
+                layerSetting.push(temp)
+
+            // formData.append(e.target[i].id, e.target[i].value)
+        }
+        data['layer_value'] = JSON.stringify(layerSetting)
+        formData.append('layer_value', JSON.stringify(layerSetting))
+        layerSetting.length = 0
+        data['add_mode'] = 'apply'
+        formData.append('add_mode', 'apply')
+
+        console.log(data)
+        // if (data.layer_name === 'DropOut')
+        //     data.layer_value[1] = parseFloat(data.layer_value[1])
+        layers_list.push(data)
+        console.log(layers_list)
+
+        const config = {
+            headers: {
+                'content-type': 'multipart/form-data',
+                'Access-Control-Allow-Origin': '*',
+                // 'CORS_SUPPORTS_CREDENTIALS': 'true',
+                'Access-Control-Allow-Credentials': 'true'
+            },
+            withCredentials: true,
+            crossorigin: true,
+        }
+
+        const url = props.url
+        axios.post(`${url}/cnn_add_layer`, formData, config)
+            .then(res => {
+                console.log(res)
+            })
+            .catch(err => console.log(err))
+
+
+    }
+
+    function handleApply() {
+        const data = {}
+        const formData = new FormData()
+        data['model_name'] = props.model_name
+        data['image_size'] = props.image_size
+        data['channels'] = props.channels
+        data['retrain_type'] = props.retrain_type
+        console.log(data)
+        formData.append('model_name', props.model_name)
+        formData.append('image_size', props.image_size)
+        formData.append('channels', props.channels)
+        formData.append('retrain_type', props.retrain_type)
+
+        const config = {
+            headers: {
+                'content-type': 'multipart/form-data',
+                'Access-Control-Allow-Origin': '*',
+                // 'CORS_SUPPORTS_CREDENTIALS': 'true',
+                'Access-Control-Allow-Credentials': 'true'
+            },
+            withCredentials: true,
+            crossorigin: true,
+        }
+
+        const url = props.url
+        axios.post(`${url}/model_settings`, formData, config)
+            .then(res => {
+                console.log(res)
+            })
+            .catch(err => console.log(err))
+    }
+
     return (
         <div className="design">
-            Design
             <div>
                 <div className="design-container">
                     <div className="design-list-container">
@@ -45,7 +135,7 @@ function Design() {
                         })}
                     </div>
 
-                    <div className="design-inputs">
+                    <form onSubmit={(e) => handleAdd(e)} className="design-inputs">
                         {DESIGN_DATA.map((data, index) => {
                             if (index === selectedOptionIndex) {
                                 if (DESIGN_DATA[index].name == 'Conv2D') {
@@ -54,12 +144,14 @@ function Design() {
                                             <label htmlFor="filters">Filters</label>
                                             <input
                                                 name="filters"
-                                                value={data.parameters.filters}
+                                                id="filters"
+                                                // value={data.parameters.filters}
                                                 placeholder={data.parameters.filters}
                                             ></input>
                                             <hr />
                                             <label for="kernel_size"></label>
 
+                                            <label htmlFor="kernel_size">Kernel Size</label>
                                             <select name="kernel_size" id="kernel_size">
                                                 {data.parameters.kernel_size.map((size) => {
                                                     return <option value={size}>{size}</option>;
@@ -75,7 +167,7 @@ function Design() {
                                             </select>
 
                                             <hr />
-                                            <label htmlFor="padding"></label>
+                                            <label htmlFor="padding">Padding</label>
 
                                             <select name="padding" id="padding">
                                                 {data.parameters.padding.map((val) => {
@@ -85,7 +177,7 @@ function Design() {
 
                                             <hr />
 
-                                            <label htmlFor="activation-function"></label>
+                                            <label htmlFor="activation-function">Activation Function</label>
 
                                             <select
                                                 name="activation-function"
@@ -100,7 +192,7 @@ function Design() {
                                 } else if (DESIGN_DATA[index].name == 'MaxPool2D') {
                                     return (
                                         <div>
-                                            <label htmlFor="poolsize"></label>
+                                            <label htmlFor="poolsize">Poolsize</label>
 
                                             <select name="poolsize" id="poolsize">
                                                 {data.parameters.poolsize.map((size) => {
@@ -116,7 +208,7 @@ function Design() {
                                             </select>
 
                                             <hr />
-                                            <label htmlFor="padding"></label>
+                                            <label htmlFor="padding">Padding</label>
 
                                             <select name="padding" id="padding">
                                                 {data.parameters.padding.map((val) => {
@@ -130,17 +222,18 @@ function Design() {
                                 } else if (DESIGN_DATA[index].name == 'Dense') {
                                     return (
                                         <div>
-                                            <label htmlFor="units"></label>
+                                            <label htmlFor="units">No of dense units</label>
 
                                             <input
                                                 name="units"
-                                                value={data.parameters.units}
+                                                id="units"
+                                                // value={data.parameters.units}
                                                 placeholder={data.parameters.units}
                                             ></input>
                                             <hr />
                                             <label htmlFor="activation_function">
                                                 activation_function
-                      </label>
+                                            </label>
                                             <select
                                                 name="activation_function"
                                                 id="activation_function"
@@ -153,12 +246,12 @@ function Design() {
                                             <hr />
                                         </div>
                                     );
-                                } else if (DESIGN_DATA[index].name == 'BatchNormalisation') {
-                                    return <div>BatchNormalisation</div>;
+                                } else if (DESIGN_DATA[index].name == 'BatchNormalization') {
+                                    return <div>BatchNormalization</div>;
                                 } else if (DESIGN_DATA[index].name == 'DropOut') {
                                     return (
                                         <div>
-                                            <label htmlFor="dropoutRate">dropoutRate</label>
+                                            <label htmlFor="dropoutRate">Dropout Rate</label>
                                             <select name="dropoutRate" id="dropoutRate">
                                                 {data.parameters.dropoutRate.map((val) => {
                                                     return <option value={val}>{val}</option>;
@@ -169,7 +262,20 @@ function Design() {
                                 }
                             }
                         })}
-                        <div className="add-btn">ADD</div>
+                        <button type="submit" className="add-btn">ADD</button>
+                    </form>
+                    <div className="submit">
+                        <button onClick={() => handleApply()}>Apply</button>
+                    </div>
+                </div>
+                <div className="container1 layers_list">
+                    <h4>Applied Layers: </h4>
+                    <div className="show_layers">
+                        {layers_list.map((layer) => {
+                            return (
+                                <div> {JSON.stringify(layer).substring(1, JSON.stringify(layer).length - 1)} </div>
+                            )
+                        })}
                     </div>
                 </div>
             </div>

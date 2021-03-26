@@ -110,7 +110,7 @@ function Preprocessing(props) {
                                                         type={sub_parameter.input_type}
                                                         id={sub_parameter.sub_parameter_name}
                                                         name={sub_parameter.sub_parameter_name}
-                                                        // defaultValue={parameter.default_value}
+                                                        defaultValue={sub_parameter.default_value}
                                                         step="any"
                                                     />
                                                 </div>

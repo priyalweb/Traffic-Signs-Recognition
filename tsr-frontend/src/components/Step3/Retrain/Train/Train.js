@@ -30,7 +30,7 @@ function Train(props) {
         }
 
         const url = props.url
-        axios.post(`${url}/retrain_segregate`, formData, config)
+        axios.post(`${url}/train_model`, formData, config)
             .then(res => {
                 console.log(res)
             })
@@ -45,11 +45,11 @@ function Train(props) {
             <form className="train_inputs" onSubmit={(e) => handleSubmit(e)}>
                 <div className="train_input">
                     <label htmlFor="batch_size">batch_size</label>
-                    <input type="number" step="any" name="batch_size" id="batch_size" />
+                    <input type="number" defaultValue="64" step="any" name="batch_size" id="batch_size" />
                 </div>
                 <div className="train_input">
                     <label htmlFor="epochs">epochs</label>
-                    <input type="number" step="any" name="epochs" id="epochs" />
+                    <input type="number" defaultValue="3" step="any" name="epochs" id="epochs" />
                 </div>
                 <div className="submit">
                     <button type="submit">Submit</button>

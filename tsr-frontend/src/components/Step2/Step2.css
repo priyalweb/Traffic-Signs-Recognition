@@ -94,6 +94,11 @@
   margin: 1rem;
 }
 
+.augs_list {
+  display: flex;
+  flex-direction: column;
+}
+
 .edit-options button:hover {
   background-color: rgb(247, 46, 46);
 }
