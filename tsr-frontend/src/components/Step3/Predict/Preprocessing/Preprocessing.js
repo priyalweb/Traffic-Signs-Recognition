@@ -92,57 +92,57 @@ function Preprocessing(props) {
                 <h2><b>Pre-Processing</b></h2>
             </header>
             <div className="response-img" style={{ padding: "2rem" }}>
-            <form onSubmit={(e) => handleSubmit(e)}>
-                <div className="pre-processing-inputs">
-                    {
-                        STEP3_PREDICT[0].parameters.map((parameter, index) => {
-                            return (
-                                <>
-                                    <div className="parameter_check">
-                                        <input  style={{margin: "4%", width: '20px', height: '20px',cursor: 'pointer'}} 
-                                        type="checkbox" name={parameter.parameter_name} id={parameter.parameter_name} />
-                                        <span> <strong> {parameter.parameter_name} </strong></span>
-                                    </div>
+                <form onSubmit={(e) => handleSubmit(e)}>
+                    <div className="pre-processing-inputs">
+                        {
+                            STEP3_PREDICT[0].parameters.map((parameter, index) => {
+                                return (
+                                    <>
+                                        <div className="parameter_check">
+                                            <input style={{ margin: "4%", width: '20px', height: '20px', cursor: 'pointer' }}
+                                                type="checkbox" name={parameter.parameter_name} id={parameter.parameter_name} />
+                                            <span> <strong> {parameter.display_name} </strong></span>
+                                        </div>
 
-                                    {
-                                        parameter.sub_parameters.map((sub_parameter) => {
-                                            return (
-                                                <div className="ind_input">
-                                                    <label htmlFor={sub_parameter.sub_parameter_name}> Enter {sub_parameter.sub_parameter_name} </label>
-                                                    <input
-                                                        type={sub_parameter.input_type}
-                                                        id={sub_parameter.sub_parameter_name}
-                                                        name={sub_parameter.sub_parameter_name}
-                                                        defaultValue={sub_parameter.default_value}
-                                                        step="any"
-                                                    />
-                                                </div>
-                                            )
-                                        })
-                                    }
-                                </>
+                                        {
+                                            parameter.sub_parameters.map((sub_parameter) => {
+                                                return (
+                                                    <div className="ind_input">
+                                                        <label htmlFor={sub_parameter.sub_parameter_name}> Enter {sub_parameter.display_name} </label>
+                                                        <input
+                                                            type={sub_parameter.input_type}
+                                                            id={sub_parameter.sub_parameter_name}
+                                                            name={sub_parameter.sub_parameter_name}
+                                                            defaultValue={sub_parameter.default_value}
+                                                            step="any"
+                                                        />
+                                                    </div>
+                                                )
+                                            })
+                                        }
+                                    </>
 
-                            )
-                        })
-                    }
-                    <div className="parameter_check">
-                        <input style={{margin: "4%", width: '20px', height: '20px',cursor: 'pointer'}} 
-                         type="checkbox" name="normalize/standardize" id="normalize/standardize" />
-                        <select name="select-state" id="select-state">
-                            <option value="normalize"> Normalize </option>
-                            <option value="standardize"> Standardize </option>
-                        </select>
+                                )
+                            })
+                        }
+                        <div className="parameter_check">
+                            <input style={{ margin: "4%", width: '20px', height: '20px', cursor: 'pointer' }}
+                                type="checkbox" name="normalize/standardize" id="normalize/standardize" />
+                            <select name="select-state" id="select-state">
+                                <option value="normalize"> Normalize </option>
+                                <option value="standardize"> Standardize </option>
+                            </select>
+                        </div>
+                        {/* <span> ({STEP3_PREDICT[0].description})</span> */}
                     </div>
-                    {/* <span> ({STEP3_PREDICT[0].description})</span> */}
-                </div>
-                <div className="submit" style={{width: "100%"}}>
-                    <button style={{width: "100%"}} type="submit">Apply</button>
-                </div>
-            </form>
+                    <div className="submit" style={{ width: "100%" }}>
+                        <button style={{ width: "100%" }} type="submit">Apply</button>
+                    </div>
+                </form>
 
-            <div className="response-img">
-                <img height="300" src={displayImage} alt="" />
-            </div>
+                <div className="response-img" style={{ display: 'flex', justifyContent: 'center' }}>
+                    <img height="300" src={displayImage} alt="" />
+                </div>
 
             </div>
 

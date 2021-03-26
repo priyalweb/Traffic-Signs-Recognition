@@ -4,6 +4,7 @@ export const DEFAULT_OPTIONS = [
         parameters: [
             {
                 parameter_name: 'clip_limit',
+                display_name: 'Clip Limit',
                 type: 'int',
                 input_type: 'number',
                 default_value: 14,
@@ -13,6 +14,7 @@ export const DEFAULT_OPTIONS = [
             },
             {
                 parameter_name: 'tile_grid_x',
+                display_name: 'Tile Grid X',
                 type: 'int',
                 input_type: 'number',
                 default_value: 8,
@@ -22,6 +24,7 @@ export const DEFAULT_OPTIONS = [
             },
             {
                 parameter_name: 'tile_grid_y',
+                display_name: 'Tile Grid Y',
                 type: 'int',
                 input_type: 'number',
                 default_value: 8,
@@ -31,6 +34,7 @@ export const DEFAULT_OPTIONS = [
             },
             {
                 parameter_name: 'prob',
+                display_name: 'Probability',
                 type: 'float',
                 input_type: 'number',
                 default_value: 1,
@@ -45,6 +49,7 @@ export const DEFAULT_OPTIONS = [
         parameters: [
             {
                 parameter_name: 'num_holes',
+                display_name: 'Number of Holes',
                 type: 'int',
                 input_type: 'number',
                 default_value: 8,
@@ -54,6 +59,7 @@ export const DEFAULT_OPTIONS = [
             },
             {
                 parameter_name: 'max_h_size',
+                display_name: 'Max h size',
                 type: 'int',
                 input_type: 'number',
                 default_value: 8,
@@ -63,6 +69,7 @@ export const DEFAULT_OPTIONS = [
             },
             {
                 parameter_name: 'max_w_size',
+                display_name: 'Max w size',
                 type: 'int',
                 input_type: 'number',
                 default_value: 8,
@@ -72,6 +79,7 @@ export const DEFAULT_OPTIONS = [
             },
             {
                 parameter_name: 'prob',
+                display_name: 'Probability',
                 type: 'float',
                 input_type: 'number',
                 default_value: 1,
@@ -86,6 +94,7 @@ export const DEFAULT_OPTIONS = [
         parameters: [
             {
                 parameter_name: 'var_limit_x',
+                display_name: 'Variance Limit X',
                 type: 'int',
                 input_type: 'number',
                 default_value: 10,
@@ -95,6 +104,7 @@ export const DEFAULT_OPTIONS = [
             },
             {
                 parameter_name: 'var_limit_y',
+                display_name: 'Variance Limit Y',
                 type: 'int',
                 input_type: 'number',
                 default_value: 10,
@@ -104,6 +114,7 @@ export const DEFAULT_OPTIONS = [
             },
             {
                 parameter_name: 'prob',
+                display_name: 'Probability',
                 type: 'float',
                 input_type: 'number',
                 default_value: 1,
@@ -118,6 +129,7 @@ export const DEFAULT_OPTIONS = [
         parameters: [
             {
                 parameter_name: 'hue_shift_limit',
+                display_name: 'Hue Shift Limit',
                 type: 'int',
                 input_type: 'number',
                 default_value: -20,
@@ -127,6 +139,7 @@ export const DEFAULT_OPTIONS = [
             },
             {
                 parameter_name: 'sat_shift_limit',
+                display_name: 'Saturation Shift Limit',
                 type: 'int',
                 input_type: 'number',
                 default_value: -30,
@@ -136,6 +149,7 @@ export const DEFAULT_OPTIONS = [
             },
             {
                 parameter_name: 'val_shift_limit',
+                display_name: 'Value Shift Limit',
                 type: 'int',
                 input_type: 'number',
                 default_value: -20,
@@ -145,6 +159,7 @@ export const DEFAULT_OPTIONS = [
             },
             {
                 parameter_name: 'prob',
+                display_name: 'Probability',
                 type: 'float',
                 input_type: 'number',
                 default_value: 1,
@@ -159,6 +174,7 @@ export const DEFAULT_OPTIONS = [
         parameters: [
             {
                 parameter_name: 'blur_limit',
+                display_name: 'Blur Limit',
                 type: 'int',
                 input_type: 'number',
                 default_value: 7,
@@ -168,6 +184,7 @@ export const DEFAULT_OPTIONS = [
             },
             {
                 parameter_name: 'prob',
+                display_name: 'Probability',
                 type: 'float',
                 input_type: 'number',
                 default_value: 1,
@@ -182,6 +199,7 @@ export const DEFAULT_OPTIONS = [
         parameters: [
             {
                 parameter_name: 'prob',
+                display_name: 'Probability',
                 type: 'float',
                 input_type: 'number',
                 default_value: 1,
@@ -196,6 +214,7 @@ export const DEFAULT_OPTIONS = [
         parameters: [
             {
                 parameter_name: 'num_steps',
+                display_name: 'Number of Steps',
                 type: 'int',
                 input_type: 'number',
                 default_value: 5,
@@ -205,6 +224,7 @@ export const DEFAULT_OPTIONS = [
             },
             {
                 parameter_name: 'distort_limit',
+                display_name: 'Distort Limit',
                 type: 'float',
                 input_type: 'number',
                 default_value: -0.3,
@@ -214,6 +234,7 @@ export const DEFAULT_OPTIONS = [
             },
             {
                 parameter_name: 'prob',
+                display_name: 'Probability',
                 type: 'float',
                 input_type: 'number',
                 default_value: 1,
@@ -228,6 +249,7 @@ export const DEFAULT_OPTIONS = [
         parameters: [
             {
                 parameter_name: 'blur_limit',
+                display_name: 'Blur Limit',
                 type: 'int',
                 input_type: 'number',
                 default_value: 7,
@@ -237,6 +259,7 @@ export const DEFAULT_OPTIONS = [
             },
             {
                 parameter_name: 'prob',
+                display_name: 'Probability',
                 type: 'float',
                 input_type: 'number',
                 default_value: 1,
@@ -251,6 +274,7 @@ export const DEFAULT_OPTIONS = [
         parameters: [
             {
                 parameter_name: 'prob',
+                display_name: 'Probability',
                 type: 'float',
                 input_type: 'number',
                 default_value: 1,
@@ -265,6 +289,7 @@ export const DEFAULT_OPTIONS = [
         parameters: [
             {
                 parameter_name: 'prob',
+                display_name: 'Probability',
                 type: 'float',
                 input_type: 'number',
                 default_value: 1,
@@ -279,6 +304,7 @@ export const DEFAULT_OPTIONS = [
         parameters: [
             {
                 parameter_name: 'limit',
+                display_name: 'limit',
                 type: 'float',
                 input_type: 'number',
                 default_value: -0.2,
@@ -288,6 +314,7 @@ export const DEFAULT_OPTIONS = [
             },
             {
                 parameter_name: 'prob',
+                display_name: 'Probability',
                 type: 'float',
                 input_type: 'number',
                 default_value: 1,
@@ -302,6 +329,7 @@ export const DEFAULT_OPTIONS = [
         parameters: [
             {
                 parameter_name: 'brightness_limit',
+                display_name: 'Brightness Limit',
                 type: 'float',
                 input_type: 'number',
                 default_value: -0.2,
@@ -311,6 +339,7 @@ export const DEFAULT_OPTIONS = [
             },
             {
                 parameter_name: 'contrast_limit',
+                display_name: 'Contrast Limit',
                 type: 'float',
                 input_type: 'number',
                 default_value: -0.2,
@@ -320,6 +349,7 @@ export const DEFAULT_OPTIONS = [
             },
             {
                 parameter_name: 'prob',
+                display_name: 'Probability',
                 type: 'float',
                 input_type: 'number',
                 default_value: 1,
@@ -334,6 +364,7 @@ export const DEFAULT_OPTIONS = [
         parameters: [
             {
                 parameter_name: 'limit',
+                display_name: 'limit',
                 type: 'float',
                 input_type: 'number',
                 default_value: -0.2,
@@ -343,6 +374,7 @@ export const DEFAULT_OPTIONS = [
             },
             {
                 parameter_name: 'prob',
+                display_name: 'Probability',
                 type: 'float',
                 input_type: 'number',
                 default_value: 1,
@@ -357,6 +389,7 @@ export const DEFAULT_OPTIONS = [
         parameters: [
             {
                 parameter_name: 'prob',
+                display_name: 'Probability',
                 type: 'float',
                 input_type: 'number',
                 default_value: 1,
@@ -371,6 +404,7 @@ export const DEFAULT_OPTIONS = [
         parameters: [
             {
                 parameter_name: 'shift_limit',
+                display_name: 'Shift Limit',
                 type: 'float',
                 input_type: 'number',
                 default_value: -0.06,
@@ -380,6 +414,7 @@ export const DEFAULT_OPTIONS = [
             },
             {
                 parameter_name: 'rotate_limit',
+                display_name: 'Rotate Limit',
                 type: 'int',
                 input_type: 'number',
                 default_value: -90,
@@ -389,6 +424,7 @@ export const DEFAULT_OPTIONS = [
             },
             {
                 parameter_name: 'prob',
+                display_name: 'Probability',
                 type: 'float',
                 input_type: 'number',
                 default_value: 0,
@@ -403,6 +439,7 @@ export const DEFAULT_OPTIONS = [
         parameters: [
             {
                 parameter_name: 'rain_type',
+                display_name: 'Rain Type',
                 type: 'string',
                 input_type: 'text',
                 default_value: 'heavy',
@@ -414,6 +451,7 @@ export const DEFAULT_OPTIONS = [
         parameters: [
             {
                 parameter_name: 'snow_coeff',
+                display_name: 'Snow Coefficient',
                 type: 'float',
                 input_type: 'number',
                 default_value: 0.3,
@@ -428,6 +466,7 @@ export const DEFAULT_OPTIONS = [
         parameters: [
             {
                 parameter_name: 'no_of_shadows',
+                display_name: 'No of Shadows',
                 type: 'int',
                 input_type: 'number',
                 default_value: 1,
@@ -437,6 +476,7 @@ export const DEFAULT_OPTIONS = [
             },
             {
                 parameter_name: 'shadow_dimension',
+                display_name: 'Shadow Dimension',
                 type: 'int',
                 input_type: 'number',
                 default_value: 5,
@@ -451,6 +491,7 @@ export const DEFAULT_OPTIONS = [
         parameters: [
             {
                 parameter_name: 'darkness_coeff',
+                display_name: 'Darkness Coefficient',
                 type: 'float',
                 input_type: 'number',
                 default_value: 0.7,

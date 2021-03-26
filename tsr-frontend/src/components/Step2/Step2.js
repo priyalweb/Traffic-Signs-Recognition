@@ -111,49 +111,49 @@ const Step2 = (props) => {
     return (
         <>
             <div className="container2" >
-                <div style={{display: "inline-block"}}>
-                {/* <h4 style={{ marginRight: '180px', display: "inline-block", color: '#8d8d8d'}} > {props.count} </h4> */}
-                {/* <h2 style={{paddingRight: '250px', display: "inline-block"}}><b>Augmented Image</b></h2> */}
+                <div style={{ display: "inline-block" }}>
+                    {/* <h4 style={{ marginRight: '180px', display: "inline-block", color: '#8d8d8d'}} > {props.count} </h4> */}
+                    {/* <h2 style={{paddingRight: '250px', display: "inline-block"}}><b>Augmented Image</b></h2> */}
                 </div>
 
-                        <div className="container">
-                            <div className="row">
-                                {/* <div></div>
+                <div className="container">
+                    <div className="row">
+                        {/* <div></div>
                                 isko left right swap krde aur heading ko bhi right */}
-                                
-                                <div className="col-12 col-md-6">
-                                {/* <h3 style={{textAlign:"center"}}>Guidelines: </h3> */}
-                                <h2 style={{marginBottom: "20px",textAlign:"center"}}><b>Guidelines:</b></h2>
-                                    <div className="response-img" style={{ height:"300",  width:"300", padding: "2%" }}>
-                                        
-                                        <ul>
-                                            <li>The panel on the left has the types of augmentations.</li>
-                                            <li>You can select none or multiple, as required.</li>
-                                            <li>The default parameters are set but can be changed.</li>
-                                            <li>All selected augmentations will be implemented one after the other (sequentially) on the display image. </li>
-                                            <li>The probability for display has been set as one to ensure visualisation.</li>
-                                            <li>However, in the actual implementation, the augmentations will be applied on images based on probability value set by the user.</li>
-                                            <li>All the applied augmentations have been listed sequentially at the lower left corner.</li>
-                                            <li>Press "Apply" to visualise and add the augmentation to the list.</li>
-                                            <li>Press "Undo" to remove the last augmentation.</li> 
-                                            <li>Press "Reset" to remove all augmentations.</li>
-                                        </ul>
-                                        
-                                    </div>
-                                </div>
-                                {/* <div className="col-12 col-md-1">
-                                </div> */}
-                                <div className="col-12 col-md-6" style={{textAlign: "center", padding:"2% 0"}}>
-                                    <h2 style={{marginBottom: "40px",}}><b>Augmented Image:</b></h2>
-                                        <div className="response-img" style={{height:"300", width:"300"}} >
-                                            <img height="300" width="300" src={props.displayImage} alt="" />
-                                        </div>
-                                </div>
-                                {/* <div className="col-12 col-md-1">
-                                </div> */}
-                            </div>
 
+                        <div className="col-12 col-md-6">
+                            {/* <h3 style={{textAlign:"center"}}>Guidelines: </h3> */}
+                            <h2 style={{ marginBottom: "20px", textAlign: "center" }}><b>Guidelines:</b></h2>
+                            <div className="response-img" style={{ height: "300", width: "300", padding: "2%" }}>
+
+                                <ul>
+                                    <li>The panel on the left has the types of augmentations.</li>
+                                    <li>You can select none or multiple, as required.</li>
+                                    <li>The default parameters are set but can be changed.</li>
+                                    <li>All selected augmentations will be implemented one after the other (sequentially) on the display image. </li>
+                                    <li>The probability for display has been set as one to ensure visualisation.</li>
+                                    <li>However, in the actual implementation, the augmentations will be applied on images based on probability value set by the user.</li>
+                                    <li>All the applied augmentations have been listed sequentially at the lower left corner.</li>
+                                    <li>Press "Apply" to visualise and add the augmentation to the list.</li>
+                                    <li>Press "Undo" to remove the last augmentation.</li>
+                                    <li>Press "Reset" to remove all augmentations.</li>
+                                </ul>
+
+                            </div>
                         </div>
+                        {/* <div className="col-12 col-md-1">
+                                </div> */}
+                        <div className="col-12 col-md-6" style={{ textAlign: "center", padding: "2% 0" }}>
+                            <h2 style={{ marginBottom: "40px", }}><b>Augmented Image:</b></h2>
+                            <div className="response-img" style={{ height: "300", width: "300" }} >
+                                <img height="300" width="300" src={props.displayImage} alt="" />
+                            </div>
+                        </div>
+                        {/* <div className="col-12 col-md-1">
+                                </div> */}
+                    </div>
+
+                </div>
             </div>
             <div>
                 <div className="container1">
@@ -178,7 +178,7 @@ const Step2 = (props) => {
                                             if (parameter.parameter_name === 'prob') {
                                                 return (
                                                     <div className="ind_input">
-                                                        <label htmlFor={parameter.parameter_name}> Enter {parameter.parameter_name} </label>
+                                                        <label htmlFor={parameter.parameter_name}> Enter {parameter.display_name} </label>
                                                         <input
                                                             type={parameter.input_type}
                                                             id={parameter.parameter_name}
@@ -194,7 +194,7 @@ const Step2 = (props) => {
                                             if (augmentation.name === 'add_rain') {
                                                 return (
                                                     <div className="ind_input">
-                                                        <label htmlFor={parameter.parameter_name}> Enter {parameter.parameter_name} (heavy/drizzle) </label>
+                                                        <label htmlFor={parameter.parameter_name}> Enter {parameter.display_name} (heavy/drizzle) </label>
                                                         <input
                                                             type={parameter.input_type}
                                                             id={parameter.parameter_name}
@@ -209,7 +209,7 @@ const Step2 = (props) => {
                                             }
                                             else return (
                                                 <div className="ind_input">
-                                                    <label htmlFor={parameter.parameter_name}> Enter {parameter.parameter_name} </label>
+                                                    <label htmlFor={parameter.parameter_name}> Enter {parameter.display_name} </label>
                                                     <input
                                                         type={parameter.input_type}
                                                         id={parameter.parameter_name}
@@ -238,7 +238,7 @@ const Step2 = (props) => {
 
                 </div>
                 <div className="container1 augs_list">
-                <h4 style={{  color: '#8d8d8d'}} > {props.count} </h4>
+                    <h4 style={{ color: '#8d8d8d' }} > {props.count} </h4>
                     <h4>Applied Augmentations: </h4>
                     <div className="show_augs">
                         {augs_list.map((aug) => {

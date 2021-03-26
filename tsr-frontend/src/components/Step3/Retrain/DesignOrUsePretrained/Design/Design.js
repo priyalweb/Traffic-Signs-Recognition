@@ -107,9 +107,13 @@ function Design(props) {
         const url = props.url
         axios.post(`${url}/model_settings`, formData, config)
             .then(res => {
+                alert('Designing Successful.')
                 console.log(res)
             })
-            .catch(err => console.log(err))
+            .catch(err => {
+                alert('Designing Failed.')
+                console.log(err)
+            })
     }
 
     return (
@@ -264,8 +268,8 @@ function Design(props) {
                         })}
                         <button type="submit" className="add-btn">ADD</button>
                     </form>
-                    <div className="submit" style={{width: "100%"}}>
-                        <button style={{width: "100%"}} onClick={() => handleApply()}>Apply</button>
+                    <div className="submit" style={{ width: "100%" }}>
+                        <button style={{ width: "100%" }} onClick={() => handleApply()}>Apply</button>
                     </div>
                 </div>
                 <div className="container1 layers_list">

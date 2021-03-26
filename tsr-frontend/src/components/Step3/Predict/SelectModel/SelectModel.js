@@ -52,10 +52,10 @@ function SelectModel(props) {
                         <label htmlFor="select-model">Choose a Model</label>
                         <select name="select-model" id="select-model">
                             {
-                                STEP3_PREDICT[1].parameters[0].models.map((model) => {
+                                STEP3_PREDICT[1].parameters[0].models.map((model, index) => {
                                     //model ke names: Model1: Improved_Model and Model2: Baseline_Model
                                     return (
-                                        <option value={model}> {model} </option>
+                                        <option value={STEP3_PREDICT[1].parameters[0].model_values[index]}> {model} </option>
                                     )
                                 })
                             }

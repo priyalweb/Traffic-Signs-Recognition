@@ -65,10 +65,15 @@ function Balancing(props) {
         setLoading(true)
         axios.post(`${url}/retrain_balance`, formData, config)
             .then(res => {
+                alert('Balancing Successful.')
                 console.log(res)
                 setLoading(false)
             })
-            .catch(err => console.log(err))
+            .catch(err => {
+                alert('Balancing Failed.')
+                setLoading(false)
+                console.log(err)
+            })
 
     }
 
@@ -77,41 +82,41 @@ function Balancing(props) {
             <header>
                 <h2><b>Balancing</b></h2>
             </header>
-            <div className="response-img" style={{padding: "2rem", paddingRight: "4rem"}}>
-            <form  onSubmit={(e) => handleSubmit(e)} className="inputs">
+            <div className="response-img" style={{ padding: "2rem", paddingRight: "4rem" }}>
+                <form onSubmit={(e) => handleSubmit(e)} className="inputs">
 
-                <div className="common-input">
-                    <label htmlFor="common"><b>Enter Common Value</b></label>
-                    <input type="number" id="common" />
-                </div>
+                    <div className="common-input">
+                        <label htmlFor="common"><b>Enter Common Value</b></label>
+                        <input type="number" id="common" />
+                    </div>
 
-                {inputList.map((x, i) => {
-                    return (
-                        <div className="balancing-inputs">
-                            <input
-                                name="id"
-                                placeholder="Enter class id"
-                                value={x.id}
-                                onChange={e => handleInputChange(e, i)}
-                            />
-                            <input
-                                name="number"
-                                placeholder="Enter Number of Images"
-                                value={x.number}
-                                onChange={e => handleInputChange(e, i)}
-                            />
-                            <div>
-                                {inputList.length !== 1 && <button className="balancing_button" onClick={() => handleRemoveClick(i)}>Remove</button>}
-                                {inputList.length - 1 === i && <button className="balancing_button" onClick={handleAddClick}>Add</button>}
+                    {inputList.map((x, i) => {
+                        return (
+                            <div className="balancing-inputs">
+                                <input
+                                    name="id"
+                                    placeholder="Enter class id"
+                                    value={x.id}
+                                    onChange={e => handleInputChange(e, i)}
+                                />
+                                <input
+                                    name="number"
+                                    placeholder="Enter Number of Images"
+                                    value={x.number}
+                                    onChange={e => handleInputChange(e, i)}
+                                />
+                                <div>
+                                    {inputList.length !== 1 && <button className="balancing_button" onClick={() => handleRemoveClick(i)}>Remove</button>}
+                                    {inputList.length - 1 === i && <button className="balancing_button" onClick={handleAddClick}>Add</button>}
+                                </div>
                             </div>
-                        </div>
-                    );
-                })}
-                <div className="submit">
-                    <button className="balancing_button" type="submit">Balance</button>
-                    {loading && <img src="/assets/loader.gif" alt="" />}
-                </div>
-            </form>
+                        );
+                    })}
+                    <div className="submit">
+                        <button className="balancing_button" type="submit">Balance</button>
+                        {loading && <img src="/assets/loader.gif" alt="" />}
+                    </div>
+                </form>
             </div>
         </div>
     )

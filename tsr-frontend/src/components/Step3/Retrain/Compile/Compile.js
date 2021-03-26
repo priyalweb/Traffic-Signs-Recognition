@@ -44,10 +44,15 @@ function Compile(props) {
         setLoading(true)
         axios.post(`${url}/compile`, formData, config)
             .then(res => {
+                alert('Compile Successful.')
                 console.log(res)
                 setLoading(false)
             })
-            .catch(err => console.log(err))
+            .catch(err => {
+                alert('Compile Failed.')
+                setLoading(false)
+                console.log(err)
+            })
 
     }
 
@@ -81,7 +86,7 @@ function Compile(props) {
                                         return augmentation.parameters.map((parameter) => {
                                             return (
                                                 <div className="ind_input">
-                                                    <label htmlFor={parameter.parameter_name}> Enter {parameter.parameter_name} </label>
+                                                    <label htmlFor={parameter.parameter_name}> Enter {parameter.display_name} </label>
                                                     <input
                                                         type={parameter.input_type}
                                                         id={parameter.parameter_name}

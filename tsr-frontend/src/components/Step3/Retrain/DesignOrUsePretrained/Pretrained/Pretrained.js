@@ -42,10 +42,15 @@ function Pretrained(props) {
         setLoading(true)
         axios.post(`${url}/model_settings`, formData, config)
             .then(res => {
+                alert('Successful.')
                 console.log(res)
                 setLoading(false)
             })
-            .catch(err => console.log(err))
+            .catch(err => {
+                alert('Failed.')
+                setLoading(false)
+                console.log(err)
+            })
     }
 
     return (

@@ -35,10 +35,15 @@ function Segregation(props) {
         setLoading(true)
         axios.post(`${url}/retrain_segregate`, formData, config)
             .then(res => {
+                alert('Segregation Successful.')
                 console.log(res)
                 setLoading(false)
             })
-            .catch(err => console.log(err))
+            .catch(err => {
+                alert('Segregation Failed.')
+                setLoading(false)
+                console.log(err)
+            })
     }
 
     return (
@@ -47,25 +52,25 @@ function Segregation(props) {
                 <h2><b>Segregation</b></h2>
             </header>
             <div className="response-img" style={{ padding: "2rem" }}>
-            <form onSubmit={(e) => handleSubmit(e)} className="segregation_inputs">
-                <div className="segregation_input">
-                    <label htmlFor="test_size">Enter Test Size</label>
-                    <input type="number" min="0" max="1" step="any" name="test_size" id="test_size" />
-                </div>
-                <div className="segregation_input">
-                    <label htmlFor="segregation_type">Select Type of Segregation</label>
-                    <select name="select-segregation-type" id="select-segregation-type">
-                        <option value="Normal"> Normal </option>
-                        <option value="Stratified"> Stratified </option>
-                        <option value="Difficult_samples"> Difficult_Samples </option>
-                        <option value="kennard_stone"> kennard_stone </option>
-                    </select>
-                </div>
-                <div className="submit" style={{width: "100%"}}>
-                    <button style={{width: "100%"}} type="submit">Submit</button>
-                    {loading && <img src="/assets/loader.gif" alt="" />}
-                </div>
-            </form>
+                <form onSubmit={(e) => handleSubmit(e)} className="segregation_inputs">
+                    <div className="segregation_input">
+                        <label htmlFor="test_size">Enter Test Size</label>
+                        <input type="number" min="0" max="1" step="any" name="test_size" id="test_size" />
+                    </div>
+                    <div className="segregation_input">
+                        <label htmlFor="segregation_type">Select Type of Segregation</label>
+                        <select name="select-segregation-type" id="select-segregation-type">
+                            <option value="Normal"> Normal </option>
+                            <option value="Stratified"> Stratified </option>
+                            <option value="Difficult_samples"> Difficult_Samples </option>
+                            <option value="kennard_stone"> kennard_stone </option>
+                        </select>
+                    </div>
+                    <div className="submit" style={{ width: "100%" }}>
+                        <button style={{ width: "100%" }} type="submit">Submit</button>
+                        {loading && <img src="/assets/loader.gif" alt="" />}
+                    </div>
+                </form>
             </div>
         </div>
     )
