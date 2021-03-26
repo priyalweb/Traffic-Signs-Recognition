@@ -7,6 +7,7 @@ import { FaList, } from "react-icons/fa";
 import { FiHome, FiArrowLeftCircle, FiArrowRightCircle } from "react-icons/fi";
 
 import { BsFillBarChartFill } from "react-icons/bs";
+import { RiGuideFill } from "react-icons/ri";
 
 
 import "react-pro-sidebar/dist/css/styles.css";
@@ -25,7 +26,7 @@ const Header = () => {
         <ProSidebar collapsed={menuCollapse}>
           <SidebarHeader>
             <div className="logotext">
-              <p>{menuCollapse ? "TSR" : "Traffic Sign Recognition"}</p>
+              <p>{menuCollapse ? "TSR" : "BOSCH's Traffic Sign Recognition"}</p>
             </div>
             <div className="closemenu" onClick={menuIconClick}>
               {menuCollapse ? (
@@ -52,12 +53,12 @@ const Header = () => {
                   Output
                   </NavLink>
               </MenuItem>
-              {/* <MenuItem icon={<BsFillBarChartFill />}>
-                <NavLink className="nav-link" to="/output2">
-                  Output 2
+              <MenuItem icon={<RiGuideFill />}>
+                <NavLink className="nav-link" to="/guide">
+                  Guide
                   </NavLink>
               </MenuItem>
-              <MenuItem icon={<BsFillBarChartFill />}>
+              {/* <MenuItem icon={<BsFillBarChartFill />}>
                 <NavLink className="nav-link" to="/output3">
                   Output 3
                   </NavLink>

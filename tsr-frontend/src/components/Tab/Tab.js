@@ -31,7 +31,7 @@ class Tab extends Component {
 
     return (
       <div className=" mr-5 col-12 col-md-3">
-        <li style={{ color: 'white' }}
+        <li style={{ color: "white", fontWeight: "bold" }}
           className={className}
           onClick={onClick}
         >

@@ -128,10 +128,14 @@ export default class Step12 extends Component {
       <div className="uploadfiles">
         <h1>Upload Photo Batch With Class Id</h1>
 
-        {this.state.order === '1' && <span style={{ color: 'green' }}>Images Chosen. Click on Upload Photo Batch to continue.</span>}
-                        <br></br>
-        {this.state.order === '2' && <span style={{ color: 'green' }}>Images Batch uploaded. Please proceed to step 2.</span>}
 
+        {this.state.order === '1' && <span style={{ color: 'green', fontWeight: "bold" }}>Images Chosen. Click on Upload Photo Batch to continue.</span>}
+                        <br></br>
+        {this.state.order === '2' && <span style={{ color: 'green', fontWeight: "bold"  }}>Images Batch uploaded. Please proceed to step 2.</span>}
+
+        <div style={{padding: "5%"}}>
+          <img src="/assets/classes-of-German-Traffic-Sign.png" height="280px" style={{width: '100%'}} alt="" />
+        </div>
         <form>
           <div className="">
             <label></label>

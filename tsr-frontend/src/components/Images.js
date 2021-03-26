@@ -48,7 +48,7 @@ const Images = (props) => {
                     { loading ? ( <img src={displayImage} height={props.height} alt="" /> ) : (
                     // {loading ? ( displayImage ) : (
                         // <ReactBootStrap.Spinner animation="grow" variant="danger" />
-                        <div style={{    backgroundColor: "rgb(247 46 46 / 5%)"  }}>
+                        <div style={{    backgroundColor: "rgb(247 46 46 / 5%)" , }}>
                         <Button variant="primary" disabled style={{textAlign: "center", justifyContent: "center", justifyItems: "center",
                                 alignItems: "center", justifySelf:"center", alignSelf:"center", backgroundColor: "rgb(247, 46, 46)",margin: "20px 45%",
                                 width: "120px", border: "0px" , fontSize: "large"}}>

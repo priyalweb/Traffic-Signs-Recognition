@@ -105,11 +105,11 @@ export default class Step1 extends Component {
             <div id="stp1">
                 <div className="page">
                     <div className="container">
-                        <h1 className="heading">Add Your Sign</h1>
+                        <h1 className="heading">Upload Image For Prediction</h1>
 
-                        {base64 !== null && this.state.order === '1' && <span style={{ color: 'green' }}>Image Chosen. Click on Upload Your Image to continue.</span>}
+                        {base64 !== null && this.state.order === '1' && <span style={{ color: 'green', fontWeight: "bold" }}>Image Chosen. Click on Upload Your Image to continue.</span>}
                         <br></br>
-                        {this.state.order !== '1' && this.props.base64 !== null && <span style={{ color: 'green' }}>Image uploaded. Please proceed to step 2.</span>}
+                        {this.state.order !== '1' && this.props.base64 !== null && <span style={{ color: 'green', fontWeight: "bold" }}>Image uploaded. Please proceed to step 2.</span>}
 
                         <div className="img-holder">
                             <img src={profileImg} alt="" id="img" className="img" />
