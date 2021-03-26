@@ -143,10 +143,10 @@ const Step2 = (props) => {
                         </div>
                         {/* <div className="col-12 col-md-1">
                                 </div> */}
-                        <div className="col-12 col-md-6" style={{ textAlign: "center", padding: "2% 0" }}>
+                        <div className="col-12 col-md-5" style={{ textAlign: "center", padding: "2% 0" }}>
                             <h2 style={{ marginBottom: "40px", }}><b>Augmented Image:</b></h2>
-                            <div className="response-img" style={{ height: "300", width: "300" }} >
-                                <img height="300" width="300" src={props.displayImage} alt="" />
+                            <div className="response-img">
+                                <img height="300" src={props.displayImage} alt="" />
                             </div>
                         </div>
                         {/* <div className="col-12 col-md-1">
