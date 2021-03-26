@@ -115,7 +115,7 @@ const Step2 = (props) => {
             <div className="container2">
                 <div style={{display: "inline-block"}}>
                 <h4 style={{ marginRight: '180px', display: "inline-block", color: '#8d8d8d'}} > {props.count} </h4>
-                <h2 style={{paddingRight: '250px', display: "inline-block"}}><b>Origin --> Augmented Image</b></h2>
+                <h2 style={{paddingRight: '250px', display: "inline-block"}}><b>Augmented Image</b></h2>
                 </div>
                 
                 

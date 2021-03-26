@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     alignItems: "center",
     marginLeft: "220px",
-    marginTop: "10%",
+    marginTop: "5%",
   },
   image: {
     position: 'relative',
@@ -113,10 +113,18 @@ const Step0 = (props) => {
 
   return (
     <>
-      <div>
+      <div >
+        {count === '0' && 
+        <div style={{display: "inline-block", marginLeft:" 240px"}}>
+          <div style={{margin: "0 auto" }}>
+        <h1>Choose a Path: </h1>
+            <h3>1. Predict on images using a pre-train model</h3>
+            <h3>2. Train a new model</h3>
+        </div>
+        </div>
+        }
         {count === '0' &&
           <div className={classes.root}>
-
             {/*   {images.map((image) => ( */}
             <ButtonBase
               focusRipple
