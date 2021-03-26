@@ -272,7 +272,7 @@ function Design(props) {
                         <button style={{ width: "100%" }} onClick={() => handleApply()}>Apply</button>
                     </div>
                 </div>
-                <div className="container1 layers_list">
+                {/* <div className="container1 layers_list">
                     <h4>Applied Layers: </h4>
                     <div className="show_layers">
                         {layers_list.map((layer) => {
@@ -281,7 +281,7 @@ function Design(props) {
                             )
                         })}
                     </div>
-                </div>
+                </div> */}
             </div>
         </div>
     );

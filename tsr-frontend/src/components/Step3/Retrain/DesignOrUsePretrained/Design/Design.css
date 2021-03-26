@@ -15,16 +15,18 @@
   word-wrap: break-word;
   box-sizing: border-box;
   border: 1px solid #000;
+  background-color: rgb(247, 97, 97);
 }
 
 .design-list {
-  border: 1px solid #000;
+  border: 1px solid rgb(255, 255, 255);
   padding: 10px;
   cursor: pointer;
+  color: white;
 }
 
 .design-list:hover {
-  background-color: #ccc;
+  background-color: rgb(255, 0, 0);
 }
 
 .design-inputs {
