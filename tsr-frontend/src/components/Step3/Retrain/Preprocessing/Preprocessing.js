@@ -77,6 +77,7 @@ function Preprocessing(props) {
         }
 
         const url = props.url
+        setDisplayImage('/assets/loader.gif')
         axios.post(`${url}/retrain_preprocess`, formData, config)
             .then(res => {
                 console.log(res.data)

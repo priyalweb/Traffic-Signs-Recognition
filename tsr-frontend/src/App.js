@@ -9,6 +9,7 @@ import ConnectToServer from './components/ConnectToServer/ConnectToServer'
 import Dashboard from './components/Dashboard/Dashboard'
 import Output from './components/Output/Output';
 import Guide from './components/Guide/Guide';
+import Ensemble from './components/Ensemble/Ensemble'
 
 
 function App() {
@@ -20,9 +21,10 @@ function App() {
       <Sidebar />
       <ConnectToServer url={url} setUrl={setUrl} />
       <Switch>
-      {/* <Route path="/dashboard" component={Dashboard} /> */}
+        {/* <Route path="/dashboard" component={Dashboard} /> */}
         <Route path="/dashboard" render={() => <Dashboard url={url} />} />
         <Route path="/input" render={() => <Tabshow url={url} />} />
+        <Route path="/ensemble" render={() => <Ensemble url={url} />} />
         <Route path="/output" render={() => <Output url={url} />} />
         <Route path="/guide" render={() => <Guide url={url} />} />
         <Redirect to="/dashboard" />

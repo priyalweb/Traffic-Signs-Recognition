@@ -9,9 +9,20 @@ function ConnectToServer(props) {
         console.log(e.target[0].value)
 
         props.setUrl(e.target[0].value)
-        axios.get(e.target[0].value)
-            .then(res => {
 
+        const config = {
+            headers: {
+                'content-type': 'multipart/form-data',
+                'Access-Control-Allow-Origin': '*',
+                // 'CORS_SUPPORTS_CREDENTIALS': 'true',
+                'Access-Control-Allow-Credentials': 'true'
+            },
+            withCredentials: true,
+            crossorigin: true,
+        }
+
+        axios.get(e.target[0].value, config)
+            .then(res => {
                 console.log(res.status)
                 if (res.status === 200) {
                     props.setUrl(e.target[0].value)

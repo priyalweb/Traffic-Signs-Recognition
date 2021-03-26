@@ -30,10 +30,6 @@ function DesignOrUsePretrained(props) {
                     <label htmlFor="channels">No. of Channels</label>
                     <input type="number" value={channels} onChange={(e) => setChannels(e.target.value)} name="channels" id="channels" />
                 </div>
-                <div className="common-input">
-                    <label htmlFor="classes">No. of Classes</label>
-                    <input type="number" value={classes} onChange={(e) => setClasses(e.target.value)} name="classes" id="classes" />
-                </div>
                 <div className="design_or_pretrained_buttons">
                     <button onClick={() => setCount(1)} >Design Model</button>
                     <button onClick={() => setCount(2)} >Use Pretrained Model</button>

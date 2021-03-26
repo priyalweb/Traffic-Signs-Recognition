@@ -8,10 +8,4 @@ export const PRETRAINED_DATA = [
     {
         name: 'VGG19',
     },
-    {
-        name: 'InceptionV3',
-    },
-    {
-        name: 'Xception',
-    },
 ];

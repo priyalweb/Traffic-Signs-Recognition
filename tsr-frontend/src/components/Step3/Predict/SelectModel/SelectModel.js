@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
 
 import { STEP3_PREDICT } from '../../../../utils/step3'
 import './SelectModel.css'
 
 function SelectModel(props) {
+
+    const [id, setId] = useState(null)
+    const [loading, setLoading] = useState(false)
+    const [loading1, setLoading1] = useState(false)
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -26,9 +30,13 @@ function SelectModel(props) {
         formData.append('path_model', e.target[0].value)
 
         const url = props.url
+        setLoading(true)
         axios.post(`${url}/predict`, formData, config)
             .then(res => {
                 console.log(res.data)
+                setId(res.data.class_id)
+                setLoading(false)
+                setLoading1(true)
             })
             .catch(err => console.log(err))
     }
@@ -55,10 +63,12 @@ function SelectModel(props) {
                 <div className="submit">
                     <button type="submit">Select</button>
                 </div>
-
-
-
             </form>
+            {loading && <img src="/assets/loader.gif" alt="" />}
+            { loading === false && loading1 === true && <div className="outputs">
+                <p>The predicted class id of the image is <strong className="class_id">{id}</strong> </p>
+                <img src="/assets/plot_of_classes.png" height="400" alt="" />
+            </div>}
         </div>
     )
 }

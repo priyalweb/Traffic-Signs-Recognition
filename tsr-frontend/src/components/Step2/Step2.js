@@ -11,7 +11,6 @@ var namee, name2;
 
 const Step2 = (props) => {
     const [selectedOptionIndex, setSelectedOptionIndex] = useState(0)
-    const [displayImage, setDisplayImage] = useState('assets/default-img.jpg')
     // const [augs_list, setAugsList] = useState([])
 
     console.log(props.count);
@@ -22,7 +21,7 @@ const Step2 = (props) => {
         console.log(DEFAULT_OPTIONS[selectedOptionIndex].name)
 
 
-        if (props.count == 'predict') {
+        if (props.count == 'Predict') {
             namee = 'predict';
             name2 = 'Predict';
         } else {
@@ -36,6 +35,9 @@ const Step2 = (props) => {
         formData.append('aug_name', DEFAULT_OPTIONS[selectedOptionIndex].name)
         formData.append('aug_mode', 'run')
         formData.append('input_type', namee)
+        data['aug_mode'] = 'run'
+        data['input_type'] = namee
+        console.log(data)
         for (let i = 0; i < len; i++) {
             data[e.target[i].id] = e.target[i].value
             formData.append(e.target[i].id, e.target[i].value)
@@ -58,20 +60,13 @@ const Step2 = (props) => {
             responseType: 'blob'
         }
 
-        // const temp = augs_list.splice()
-        // temp.push(data)
-        // setAugsList(data)
         const url = props.url
         augs_list.push(data)
         axios.post(`${url}/augment`, formData, config)
             .then(res => {
 
                 console.log(res.data)
-                // var arr = new Uint8Array(res.data)
-                // var raw = String.fromCharCode.apply(null, arr)
-                // var b64 = btoa(unescape(encodeURIComponent(res.data)))
                 props.setDisplayImage(URL.createObjectURL(res.data))
-                // console.log(b64)
             })
             .catch(err => console.log(err))
 
@@ -108,11 +103,7 @@ const Step2 = (props) => {
             .then(res => {
 
                 console.log(res.data)
-                // var arr = new Uint8Array(res.data)
-                // var raw = String.fromCharCode.apply(null, arr)
-                // var b64 = btoa(unescape(encodeURIComponent(res.data)))
                 props.setDisplayImage(URL.createObjectURL(res.data))
-                // console.log(b64)
             })
             .catch(err => console.log(err))
     }
@@ -217,8 +208,10 @@ const Step2 = (props) => {
                     <h4>Applied Augmentations: </h4>
                     <div className="show_augs">
                         {augs_list.map((aug) => {
+                            // console.log(aug)
+                            // console.log(JSON.stringify(aug, undefined, 4))
                             return (
-                                <div> {JSON.stringify(aug).substring(1, JSON.stringify(aug).length - 1)} </div>
+                                <pre>{JSON.stringify(aug, undefined, 4)}</pre>
                             )
                         })}
                     </div>
@@ -229,6 +222,3 @@ const Step2 = (props) => {
 }
 
 export default Step2;
-
-
-// http://da6e01721c28.ngrok.io/predict

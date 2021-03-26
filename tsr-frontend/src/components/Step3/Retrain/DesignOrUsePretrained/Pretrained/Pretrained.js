@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
 
 import './Pretrained.css';
 import { PRETRAINED_DATA } from '../../../../../utils/pretrainedData';
 
 function Pretrained(props) {
+
+    const [loading, setLoading] = useState(false)
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -37,9 +39,11 @@ function Pretrained(props) {
         }
 
         const url = props.url
+        setLoading(true)
         axios.post(`${url}/model_settings`, formData, config)
             .then(res => {
                 console.log(res)
+                setLoading(false)
             })
             .catch(err => console.log(err))
     }
@@ -54,6 +58,7 @@ function Pretrained(props) {
             </select>
             <div className="submit">
                 <button type="submit">Submit</button>
+                {loading && <img src="/assets/loader.gif" alt="" />}
             </div>
         </form>
     );

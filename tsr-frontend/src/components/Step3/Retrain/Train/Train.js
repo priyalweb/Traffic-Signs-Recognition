@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
 
 import './Train.css'
 
 function Train(props) {
+
+    const [loading, setLoading] = useState(false)
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -30,11 +32,18 @@ function Train(props) {
         }
 
         const url = props.url
+        setLoading(true)
         axios.post(`${url}/train_model`, formData, config)
             .then(res => {
                 console.log(res)
+                setLoading(false)
+                alert('Training Successful. Please head to the "Output" tab.')
             })
-            .catch(err => console.log(err))
+            .catch(err => {
+                console.log(err)
+                setLoading(false)
+                alert('Training Failed')
+            })
     }
 
     return (
@@ -53,6 +62,7 @@ function Train(props) {
                 </div>
                 <div className="submit">
                     <button type="submit">Submit</button>
+                    {loading && <img src="/assets/loader.gif" alt="" />}
                 </div>
             </form>
         </div>

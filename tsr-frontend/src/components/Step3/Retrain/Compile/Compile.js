@@ -7,6 +7,7 @@ import './Compile.css'
 
 function Compile(props) {
 
+    const [loading, setLoading] = useState(false)
     function handleSubmit(e) {
         e.preventDefault()
         console.log(e)
@@ -40,10 +41,11 @@ function Compile(props) {
         }
 
         const url = props.url
+        setLoading(true)
         axios.post(`${url}/compile`, formData, config)
             .then(res => {
                 console.log(res)
-
+                setLoading(false)
             })
             .catch(err => console.log(err))
 
@@ -94,6 +96,7 @@ function Compile(props) {
                     </div>
                     <div className="submit">
                         <button type="submit">Apply</button>
+                        {loading && <img src="/assets/loader.gif" alt="" />}
                     </div>
                 </form>
             </div>

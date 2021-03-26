@@ -49,20 +49,20 @@ const Header = () => {
                 </NavLink>
               </MenuItem>
               <MenuItem icon={<BsFillBarChartFill />}>
+                <NavLink className="nav-link" to="/ensemble">
+                  Ensemble
+                  </NavLink>
+              </MenuItem>
+              <MenuItem icon={<RiGuideFill />}>
                 <NavLink className="nav-link" to="/output">
                   Output
                   </NavLink>
               </MenuItem>
-              <MenuItem icon={<RiGuideFill />}>
+              <MenuItem icon={<BsFillBarChartFill />}>
                 <NavLink className="nav-link" to="/guide">
                   Guide
                   </NavLink>
               </MenuItem>
-              {/* <MenuItem icon={<BsFillBarChartFill />}>
-                <NavLink className="nav-link" to="/output3">
-                  Output 3
-                  </NavLink>
-              </MenuItem> */}
             </Menu>
           </SidebarContent>
           <SidebarFooter>
