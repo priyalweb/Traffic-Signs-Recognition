@@ -88,8 +88,10 @@ function Preprocessing(props) {
     return (
         <div className="pre-processing">
             <header>
-                <h4>Pre-Processing</h4>
+                <h2><b>Pre-Processing</b></h2>
             </header>
+
+            <div className="response-img" style={{ padding: "2rem" }}>
             <form onSubmit={(e) => handleSubmit(e)}>
                 <div className="pre-processing-inputs">
                     {
@@ -97,7 +99,8 @@ function Preprocessing(props) {
                             return (
                                 <>
                                     <div className="parameter_check">
-                                        <input type="checkbox" name={parameter.parameter_name} id={parameter.parameter_name} />
+                                        <input style={{margin: "4%", width: '20px', height: '20px',cursor: 'pointer'}} 
+                                            type="checkbox" name={parameter.parameter_name} id={parameter.parameter_name} />
                                         <span> <strong> {parameter.parameter_name} </strong></span>
                                     </div>
 
@@ -123,7 +126,8 @@ function Preprocessing(props) {
                         })
                     }
                     <div className="parameter_check">
-                        <input type="checkbox" name="normalize/standardize" id="normalize/standardize" />
+                        <input style={{margin: "4%", width: '20px', height: '20px',cursor: 'pointer'}} 
+                            type="checkbox" name="normalize/standardize" id="normalize/standardize" />
                         <select name="select-state" id="select-state">
                             <option value="normalize"> Normalize </option>
                             <option value="standardize"> Standardize </option>
@@ -131,13 +135,16 @@ function Preprocessing(props) {
                     </div>
                     {/* <span> ({STEP3_PREDICT[0].description})</span> */}
                 </div>
-                <div className="submit">
-                    <button type="submit">Apply</button>
+                <div className="submit" style={{width: "100%"}}>
+                    <button style={{width: "100%"}} type="submit">Apply</button>
                 </div>
             </form>
+            
 
             <div className="response-img">
                 <img height="300" src={displayImage} alt="" />
+            </div>
+
             </div>
 
         </div>

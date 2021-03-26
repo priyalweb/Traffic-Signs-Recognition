@@ -102,11 +102,11 @@ export default class Step1 extends Component {
         console.log(profileImg, base64, "here")
 
         return (
-            <div id="stp1">
+            <div id="stp1" style={{margin: "0% 4% 4% 6%",}}>
                 <div className="page">
                     <div className="container">
                         <h1 className="heading">Upload Image For Prediction</h1>
-                        
+                    
                         {base64 !== null && this.state.order === '1' && <span style={{ color: 'green', fontWeight: "bold" }}>Image Chosen. Click on Upload Your Image to continue.</span>}
                         <br></br>
                         {this.state.order !== '1' && this.props.base64 !== null && <span style={{ color: 'green', fontWeight: "bold" }}>Image uploaded. Please proceed to step 2.</span>}

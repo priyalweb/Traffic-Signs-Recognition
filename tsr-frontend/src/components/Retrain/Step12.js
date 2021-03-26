@@ -125,7 +125,7 @@ export default class Step12 extends Component {
   });
 
     return (
-      <div className="uploadfiles">
+      <div className="uploadfiles" style={{margin: "0% 4% 4% 6%",}}>
         <h1>Upload Photo Batch With Class Id</h1>
 
 
@@ -133,7 +133,8 @@ export default class Step12 extends Component {
                         <br></br>
         {this.state.order === '2' && <span style={{ color: 'green', fontWeight: "bold"  }}>Images Batch uploaded. Please proceed to step 2.</span>}
 
-        <div style={{padding: "5%"}}>
+        {/* <div style={{padding: "5%"}}> */}
+        <div className="response-img" style={{ padding: "2rem" }}>
           <img src="/assets/classes-of-German-Traffic-Sign.png" height="280px" style={{width: '100%'}} alt="" />
         </div>
         <form>

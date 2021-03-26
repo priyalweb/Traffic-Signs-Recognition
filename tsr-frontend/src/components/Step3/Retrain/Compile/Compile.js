@@ -53,8 +53,10 @@ function Compile(props) {
     return (
         <div className="compile">
             <header>
-                <h4>Compile</h4>
+                <h2><b>Compile</b></h2>
             </header>
+            <div className="response-img" style={{ padding: "2rem" }}>
+                
             <div className="compile-items">
                 <div className="sidebar">
                     {COMPILE_OPTIONS.map((augmentation, index) => {
@@ -68,6 +70,7 @@ function Compile(props) {
                         )
                     })}
                 </div>
+                
                 <form onSubmit={(e) => handleSubmit(e)} className="user_inputs">
                     <div className="inputs">
                         {
@@ -92,10 +95,11 @@ function Compile(props) {
                             })
                         }
                     </div>
-                    <div className="submit">
-                        <button type="submit">Apply</button>
+                    <div className="submit" style={{width: "100%"}}>
+                        <button style={{width: "100%"}} type="submit">Compile</button>
                     </div>
                 </form>
+                </div>
             </div>
         </div>
     )

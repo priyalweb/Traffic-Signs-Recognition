@@ -40,8 +40,9 @@ function Train(props) {
     return (
         <div className="train">
             <header>
-                <h4>Train</h4>
+                <h2><b>Train</b></h2>
             </header>
+            <div className="response-img" style={{ padding: "2rem" }}>
             <form className="train_inputs" onSubmit={(e) => handleSubmit(e)}>
                 <div className="train_input">
                     <label htmlFor="batch_size">batch_size</label>
@@ -49,12 +50,13 @@ function Train(props) {
                 </div>
                 <div className="train_input">
                     <label htmlFor="epochs">epochs</label>
-                    <input type="number" defaultValue="3" step="any" name="epochs" id="epochs" />
+                    <input type="number" defaultValue="10" step="any" name="epochs" id="epochs" />
                 </div>
-                <div className="submit">
-                    <button type="submit">Submit</button>
+                <div className="submit" style={{width: "100%"}}>
+                    <button style={{width: "100%"}} type="submit">Train</button>
                 </div>
             </form>
+            </div>
         </div>
     )
 }

@@ -78,7 +78,7 @@
 
 .response-img {
   box-shadow: 1px 1px 10px rgba(105, 101, 101, 0.767);
-  margin: 1rem 0;
+  /* margin: 1rem 0; */
 }
 
 .edit-options {

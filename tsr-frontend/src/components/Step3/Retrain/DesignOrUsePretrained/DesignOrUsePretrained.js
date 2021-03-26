@@ -8,15 +8,16 @@ function DesignOrUsePretrained(props) {
 
     const [count, setCount] = useState(0)
     const [model_name, setModelName] = useState('')
-    const [image_size, setImageSize] = useState(0)
-    const [channels, setChannels] = useState(0)
+    const [image_size, setImageSize] = useState(32)
+    const [channels, setChannels] = useState(3)
     const [classes, setClasses] = useState(0)
 
     return (
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <header>
-                <h4> Model </h4>
+                <h2><b>Model </b></h2>
             </header>
+            <div className="response-img" style={{ padding: "2rem" }}>
             <div className="common-inputs">
                 <div className="common-input">
                     <label htmlFor="model_name">Model Name</label>
@@ -30,19 +31,18 @@ function DesignOrUsePretrained(props) {
                     <label htmlFor="channels">No. of Channels</label>
                     <input type="number" value={channels} onChange={(e) => setChannels(e.target.value)} name="channels" id="channels" />
                 </div>
-                <div className="common-input">
-                    <label htmlFor="classes">No. of Classes</label>
-                    <input type="number" value={classes} onChange={(e) => setClasses(e.target.value)} name="classes" id="classes" />
-                </div>
+
                 <div className="design_or_pretrained_buttons">
-                    <button onClick={() => setCount(1)} >Design Model</button>
-                    <button onClick={() => setCount(2)} >Use Pretrained Model</button>
+                    <button style={{width: "30%" ,marginBottom: "5%"}} onClick={() => setCount(1)} >Design Model</button>
+                    <button style={{width: "40%"}} onClick={() => setCount(2)} >Use Pretrained Model</button>
                 </div>
 
             </div>
             <div className="design_or_pretrained">
                 {count === 1 && <Design model_name={model_name} retrain_type="Design" image_size={image_size} channels={channels} classes={classes} url={props.url} />}
                 {count === 2 && <Pretrained model_name={model_name} retrain_type="Pretrained" image_size={image_size} channels={channels} classes={classes} url={props.url} />}
+            </div>
+
             </div>
         </div>
     )

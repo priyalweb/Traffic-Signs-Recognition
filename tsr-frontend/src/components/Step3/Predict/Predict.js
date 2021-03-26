@@ -8,7 +8,9 @@ function Predict(props) {
     return (
         <div className="predict">
             <Preprocessing url={props.url} />
+            <br></br><br></br>
             <SelectModel url={props.url} />
+            <br></br><br></br>
         </div>
     )
 }

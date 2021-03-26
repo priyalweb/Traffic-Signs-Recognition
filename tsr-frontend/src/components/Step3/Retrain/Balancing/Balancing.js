@@ -75,12 +75,13 @@ function Balancing(props) {
     return (
         <div className="balancing">
             <header>
-                <h4>Balancing</h4>
+                <h2><b>Balancing</b></h2>
             </header>
-            <form onSubmit={(e) => handleSubmit(e)} className="inputs">
+            <div className="response-img" style={{padding: "2rem", paddingRight: "4rem"}}>
+            <form  onSubmit={(e) => handleSubmit(e)} className="inputs">
 
                 <div className="common-input">
-                    <label htmlFor="common">Enter Common Value</label>
+                    <label htmlFor="common"><b>Enter Common Value</b></label>
                     <input type="number" id="common" />
                 </div>
 
@@ -107,10 +108,11 @@ function Balancing(props) {
                     );
                 })}
                 <div className="submit">
-                    <button type="submit">Submit</button>
+                    <button className="balancing_button" type="submit">Balance</button>
                     {loading && <img src="/assets/loader.gif" alt="" />}
                 </div>
             </form>
+            </div>
         </div>
     )
 

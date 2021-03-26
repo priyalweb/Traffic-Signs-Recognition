@@ -83,7 +83,7 @@ export const STEP3_PREDICT = [
             {
                 parameter_name: 'model',
                 input_type: 'select',
-                models: ['Sakshee_GTSRB_classification.h5', 'yuvnish_tsr_model_v5.h5']
+                models: ['Improved_Model', 'Baseline_Model']
             }
         ],
         description: 'this step does so and so thing'

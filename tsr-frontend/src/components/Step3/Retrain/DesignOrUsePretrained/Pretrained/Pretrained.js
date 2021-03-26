@@ -53,7 +53,7 @@ function Pretrained(props) {
                 })}
             </select>
             <div className="submit">
-                <button type="submit">Submit</button>
+                <button style={{width: "100%"}} type="submit">Submit</button>
             </div>
         </form>
     );

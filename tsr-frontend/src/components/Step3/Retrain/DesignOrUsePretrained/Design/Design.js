@@ -264,8 +264,8 @@ function Design(props) {
                         })}
                         <button type="submit" className="add-btn">ADD</button>
                     </form>
-                    <div className="submit">
-                        <button onClick={() => handleApply()}>Apply</button>
+                    <div className="submit" style={{width: "100%"}}>
+                        <button style={{width: "100%"}} onClick={() => handleApply()}>Apply</button>
                     </div>
                 </div>
                 <div className="container1 layers_list">
