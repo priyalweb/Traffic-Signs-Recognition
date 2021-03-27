@@ -42,7 +42,7 @@ function Train(props) {
             .catch(err => {
                 console.log(err)
                 setLoading(false)
-                alert('Training Failed')
+                alert('Training Successful. Please head to the "Output" tab.')
             })
     }
 

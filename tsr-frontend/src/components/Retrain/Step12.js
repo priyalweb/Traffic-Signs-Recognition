@@ -130,9 +130,9 @@ export default class Step12 extends Component {
         <h1>Upload Photo Batch With Class Id</h1>
 
 
-        {this.state.order === '1' && <span style={{ color: 'green', fontWeight: "bold" }}>Images Chosen. Click on Upload Photo Batch to continue.</span>}
-        <br></br>
-        {this.state.order === '2' && <span style={{ color: 'green', fontWeight: "bold" }}>Images Batch uploaded. Please proceed to step 2.</span>}
+        {/* {this.state.order === '1' && <span style={{ color: 'green', fontWeight: "bold" }}>Images Chosen. Click on Upload Photo Batch to continue.</span>}
+        <br></br> */}
+        {this.state.order === '1' && <span style={{ color: 'green', fontWeight: "bold" }}>Images Batch uploaded. Please proceed to step 2.</span>}
 
         {/* <div style={{padding: "5%"}}> */}
         <div className="response-img" style={{ display: 'flex', justifyContent: 'center' }}>
@@ -167,12 +167,12 @@ export default class Step12 extends Component {
           </label>
           <label className="image-upload" htmlFor="input">
             <i className="material-icons"> {<BiImageAdd />}</i>
-            Choose Photo Batch
-          </label>
-          <label className="image-upload" htmlFor="upld" >
-            <i className="material-icons"> {<BsCloudUpload />}</i>
             Upload Photo Batch
           </label>
+          {/* <label className="image-upload" htmlFor="upld" >
+            <i className="material-icons"> {<BsCloudUpload />}</i>
+            Upload Photo Batch
+          </label> */}
         </div>
       </div>
 
